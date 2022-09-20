@@ -2,6 +2,9 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
     <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
       <![CDATA[Inside if block of driver==null]]>
     </line>
     <line>
@@ -9,6 +12,12 @@
     </line>
     <line>
       <![CDATA[Inside the getPropertyVal method]]>
+    </line>
+    <line>
+      <![CDATA[Inside the getPropertyVal method]]>
+    </line>
+    <line>
+      <![CDATA[Opening firefox]]>
     </line>
     <line>
       <![CDATA[Brower is maximized]]>
@@ -53,6 +62,9 @@
       <![CDATA[InitElements method Created the webelements of login]]>
     </line>
     <line>
+      <![CDATA[Inside fromLoginPageToRegistrationPage]]>
+    </line>
+    <line>
       <![CDATA[Inside the BaseUtils constructor]]>
     </line>
     <line>
@@ -86,12 +98,12 @@
       <![CDATA[InitElements method Created the webelements of login]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="16820" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:27Z">
+  <suite name="Suite" duration-ms="21259" started-at="2022-09-20T12:04:49Z" finished-at="2022-09-20T12:05:10Z">
     <groups>
     </groups>
-    <test name="Test_1" duration-ms="16820" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:27Z">
+    <test name="Test_1" duration-ms="21259" started-at="2022-09-20T12:04:49Z" finished-at="2022-09-20T12:05:10Z">
       <class name="com.hirepp.sel.tests.RegistrationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="setUp" is-config="true" duration-ms="6042" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:16Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@2e4b8173]" name="setUp" is-config="true" duration-ms="8753" started-at="2022-09-20T12:04:49Z" finished-at="2022-09-20T12:04:58Z">
           <reporter-output>
             <line>
               <![CDATA[Inside if block of driver==null]]>
@@ -101,6 +113,12 @@
             </line>
             <line>
               <![CDATA[Inside the getPropertyVal method]]>
+            </line>
+            <line>
+              <![CDATA[Inside the getPropertyVal method]]>
+            </line>
+            <line>
+              <![CDATA[Opening firefox]]>
             </line>
             <line>
               <![CDATA[Brower is maximized]]>
@@ -119,7 +137,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="registrationTest" duration-ms="10741" started-at="2022-09-20T05:51:16Z" finished-at="2022-09-20T05:51:27Z">
+        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@2e4b8173]" name="registrationTest" duration-ms="12479" started-at="2022-09-20T12:04:58Z" finished-at="2022-09-20T12:05:10Z">
           <reporter-output>
             <line>
               <![CDATA[Inside registration test]]>
@@ -147,6 +165,9 @@
             </line>
             <line>
               <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[Inside fromLoginPageToRegistrationPage]]>
             </line>
             <line>
               <![CDATA[Inside the BaseUtils constructor]]>

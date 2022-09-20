@@ -51,17 +51,22 @@ public class TestBaseSetup {
 		}
 
 		else if (getProp.getPropertyVal("browser").equalsIgnoreCase("firefox")) {
+			Reporter.log("Opening firefox",true);
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-			// openBrowser();
-
+			driver.manage().window().maximize();
+			Reporter.log("Brower is maximized", true);
+			Reporter.log("Entering the URL", true);
+			driver.get(getProp.getPropertyVal("testurl"));
 		}
 
 		else if (getProp.getPropertyVal("browser").equalsIgnoreCase("edgedriver")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-			// openBrowser();
-
+			driver.manage().window().maximize();
+			Reporter.log("Brower is maximized", true);
+			Reporter.log("Entering the URL", true);
+			driver.get(getProp.getPropertyVal("testurl"));
 		}
 		return new FirstPagePO(this.driver);
 	}

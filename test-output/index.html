@@ -144,6 +144,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test_1&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;com.hirepp.sel.tests.LoginTests&quot;/&gt;
       &lt;class name=&quot;com.hirepp.sel.tests.RegistrationTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test_1 --&gt;
@@ -158,7 +159,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test_1 (1 class)</span>
+                <span class="test-name">Test_1 (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -188,12 +189,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'registrationTest')
 data.setCell(0, 2, 'com.hirepp.sel.tests.RegistrationTests')
-data.setCell(0, 3, 10741);
+data.setCell(0, 3, 12479);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 12 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -216,6 +217,7 @@ return data;
                 <span class="reporter-method-output">Inside the BaseUtils constructor</span>
                 <span class="reporter-method-output">InitElements method Created the webelements of login</span>
                 <span class="reporter-method-output">InitElements method Created the webelements of login</span>
+                <span class="reporter-method-output">Inside fromLoginPageToRegistrationPage</span>
                 <span class="reporter-method-output">Inside the BaseUtils constructor</span>
                 <span class="reporter-method-output">InitElements method Created the webelements</span>
                 <span class="reporter-method-output">Inside the getusertypes method,clicking on dropdown</span>
@@ -251,7 +253,7 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">registrationTest</span>
-                <span class="method-start">6043 ms</span>
+                <span class="method-start">8753 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
