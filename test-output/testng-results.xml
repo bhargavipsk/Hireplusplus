@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Inside if block of driver==null]]>
+    </line>
+    <line>
+      <![CDATA[Inside loadConfigFile method]]>
+    </line>
+    <line>
+      <![CDATA[Inside the getPropertyVal method]]>
+    </line>
+    <line>
+      <![CDATA[Brower is maximized]]>
+    </line>
+    <line>
+      <![CDATA[Entering the URL]]>
+    </line>
+    <line>
+      <![CDATA[Inside the getPropertyVal method]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[Inside registration test]]>
+    </line>
+    <line>
+      <![CDATA[going to call before method and get the firstpageobject]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[inside the goTOLogin method]]>
+    </line>
+    <line>
+      <![CDATA[Clicked on Login]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements]]>
+    </line>
+    <line>
+      <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
+    </line>
+    <line>
+      <![CDATA[Clicked on dropdown]]>
+    </line>
+    <line>
+      <![CDATA[number of elements in userType4]]>
+    </line>
+    <line>
+      <![CDATA[UserType is not found in the UserType dropdown]]>
+    </line>
+    <line>
+      <![CDATA[UserType is not found in the UserType dropdown]]>
+    </line>
+    <line>
+      <![CDATA[UserType is not found in the UserType dropdown]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="16820" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:27Z">
+    <groups>
+    </groups>
+    <test name="Test_1" duration-ms="16820" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:27Z">
+      <class name="com.hirepp.sel.tests.RegistrationTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="setUp" is-config="true" duration-ms="6042" started-at="2022-09-20T05:51:10Z" finished-at="2022-09-20T05:51:16Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Inside if block of driver==null]]>
+            </line>
+            <line>
+              <![CDATA[Inside loadConfigFile method]]>
+            </line>
+            <line>
+              <![CDATA[Inside the getPropertyVal method]]>
+            </line>
+            <line>
+              <![CDATA[Brower is maximized]]>
+            </line>
+            <line>
+              <![CDATA[Entering the URL]]>
+            </line>
+            <line>
+              <![CDATA[Inside the getPropertyVal method]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="registrationTest" duration-ms="10741" started-at="2022-09-20T05:51:16Z" finished-at="2022-09-20T05:51:27Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Inside registration test]]>
+            </line>
+            <line>
+              <![CDATA[going to call before method and get the firstpageobject]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[inside the goTOLogin method]]>
+            </line>
+            <line>
+              <![CDATA[Clicked on Login]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements]]>
+            </line>
+            <line>
+              <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
+            </line>
+            <line>
+              <![CDATA[Clicked on dropdown]]>
+            </line>
+            <line>
+              <![CDATA[number of elements in userType4]]>
+            </line>
+            <line>
+              <![CDATA[UserType is not found in the UserType dropdown]]>
+            </line>
+            <line>
+              <![CDATA[UserType is not found in the UserType dropdown]]>
+            </line>
+            <line>
+              <![CDATA[UserType is not found in the UserType dropdown]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- registrationTest -->
+      </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
+    </test> <!-- Test_1 -->
+  </suite> <!-- Suite -->
+</testng-results>
