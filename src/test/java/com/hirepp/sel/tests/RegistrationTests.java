@@ -30,6 +30,7 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 		Thread.sleep(3000);
 		lg = fp.goTOLoginPage();
 		reg = lg.fromLoginPageToRegistrationPage();
+		
 		reg.registration("Bhargavi", "psk", "0343433434", "bhargavipsk@gmail.com", "Hash@2020", "Hash@2020",
 				"recruiter");
 	}

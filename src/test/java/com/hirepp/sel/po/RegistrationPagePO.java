@@ -106,6 +106,7 @@ public class RegistrationPagePO {
 			String confirm_pwd, String userType) throws InterruptedException
 
 	{
+		
 		cm.enterData(firstName, first_Name);
 		cm.enterData(lastName, Last_Name);
 		cm.enterData(phoneNumber, phone_num);
@@ -119,6 +120,9 @@ public class RegistrationPagePO {
 		return new LoginPagePO(this.driver);
 
 	}
+	
+	//generate temp pwd
+
 
 	/**
 	 * @author Bhargavi

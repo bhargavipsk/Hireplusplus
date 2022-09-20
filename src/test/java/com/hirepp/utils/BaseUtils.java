@@ -3,6 +3,7 @@ package com.hirepp.utils;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -119,6 +120,31 @@ public class BaseUtils {
 		webelement.clear();
 		webelement.click();
 		webelement.sendKeys(data);
+
+	}
+
+	public void isElementPresent(WebElement element) {
+		if (element != null) {
+			Reporter.log("Element is Present", true);
+		} else {
+			Reporter.log("Element is Absent", true);
+
+		}
+
+	}
+
+	public String temppwdgenerator() throws InterruptedException {
+		String email = " ";
+		driver.get("https://temp-mail.org/en/");
+		Thread.sleep(4000);
+		Reporter.log("Opening temp email generator page", true);
+		WebElement mail = driver.findElement(By.xpath("//input[@id='mail']"));
+		if (mail.getAttribute("value") != email) {
+			email = mail.getAttribute("value");
+		} else {
+			Reporter.log("Not generated any email", true);
+		}
+		return email;
 
 	}
 
