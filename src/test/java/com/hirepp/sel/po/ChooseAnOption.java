@@ -13,8 +13,11 @@ public class ChooseAnOption {
     @FindBy(xpath = "//div[@class='drop-file-input']") public WebElement UploadDoc;
 
 
-    public JobsPO goToUpload(String filePath){
-
+    public JobsPO goToUpload(String filePath) throws Exception {
+        UploadDoc.click();
+        Thread.sleep(5000);
+        Runtime.getRuntime().exec("./ScriptsDocs/JdUpload.exe");
+        return new JobsPO(this.driver);
     }
 
 
