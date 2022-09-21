@@ -15,8 +15,8 @@ public class GeneralDetailsPO {
 
     @FindBy(xpath = "//h1[.='Add General Details']") public WebElement GeneralDetailsTitle;
     @FindBy(xpath = "//label[.='Employment Type']/following-sibling::select") public WebElement employmentType;
-    @FindBy(xpath = "//label[.='Domain/Industry']/following-sibling::select") public WebElement domain;
-    @FindBy(xpath = "//label[.='Function/Area']/following-sibling::select") public WebElement functionalArea;
+    @FindBy(xpath = "//input[@placeholder='Domain Name']") public WebElement domain;
+    @FindBy(xpath = "//input[@placeholder='Enter Functional Area']") public WebElement functionalArea;
     @FindBy(xpath = "//label[.='Currency']/following-sibling::select") public WebElement currency;
     @FindBy(xpath = "//input[@placeholder='Min Salary']") public WebElement minSalary;
     @FindBy(xpath = "//input[@placeholder='Max Salary']") public WebElement maxSalary;

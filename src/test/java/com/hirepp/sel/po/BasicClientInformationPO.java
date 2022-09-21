@@ -14,12 +14,12 @@ public class BasicClientInformationPO {
     BaseUtils cm = new BaseUtils(driver);
 
     @FindBy(xpath = "//h1[.='Basic Client Information']") public WebElement clientInfoPageTitle;
-    @FindBy(xpath = "//input[@id='clientName']") public WebElement clientName;
-    @FindBy(xpath = "//label[.='Select Hiring Manager']/following-sibling::select") public WebElement hiringManager;
+    @FindBy(xpath = "//input[@placeholder='Client Name']") public WebElement clientName;
+    @FindBy(xpath = "//input[@placeholder='Hiring Manager']") public WebElement hiringManager;
     @FindBy(xpath = "//label[.='Location Type']/following-sibling::select") public WebElement locationType;
     @FindBy(xpath = "//input[@placeholder='Location']") public WebElement location;
-    @FindBy(xpath = "//input[@id='openingNum']") public WebElement openings;
-    @FindBy(xpath = "//input[@id='hirePPjobTitle']") public WebElement jobTitle;
+    @FindBy(xpath = "//input[@placeholder='No. of Openings']") public WebElement openings;
+    @FindBy(xpath = "//input[@placeholder='job Title']") public WebElement jobTitle;
     @FindBy(xpath = "//input[@id='hirePPDateOfJoining']") public WebElement joiningDate;
     @FindBy(xpath = "//button[.='Next']") public WebElement clientInfoNext;
 
@@ -36,7 +36,7 @@ public class BasicClientInformationPO {
         String date = joiningDate.getAttribute("min");
         joiningDate.sendKeys(date);
         clientInfoNext.click();
-        return new GeneralDetailsPO(this.data);
+        return new GeneralDetailsPO(this.driver);
 
     }
 
