@@ -2,6 +2,7 @@ package com.hirepp.sel.po;
 
 import java.util.List;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,33 +43,57 @@ public class RegistrationPagePO {
 	public WebElement user_TypeDropdown;
 	@FindBy(how = How.XPATH, using = "//button[text()='Create account']")
 	public WebElement createAccount;
-	// @FindBy(how = How.XPATH, using = "//*div[contains(text(),'User already
-	// registered for email')]")
-	// public WebElement account_alreadyExists;
-//	@FindBy(how = How.XPATH, using = "//div[contains(text(),'Already have an account')]/preceding::div[contains(text(),'User already registered')]")
-
+	@FindBy(how = How.XPATH, using = "//div[@class='form-body-wrapper']/following-sibling::div[contains(text(),'already')]")
+	public WebElement account_alreadyExists;
+	@FindBy(how = How.XPATH, using= "//div[@class='ant-notification ant-notification-topRight']") 
+	public WebElement notification;
+	
+	
 	/**
+	 * 
+	 * 
 	 * selects the type from the UserType dropdown
 	 * 
 	 * @author Bhargavi
 	 * @param usertype, type to be selected
 	 * @return no return value
+	 * @throws InterruptedException 
 	 * 
 	 */
-	public void selectUserType(String usertype) {
+	public void selectUserType(String usertype) throws InterruptedException {
 		Reporter.log("Inside the getusertypes method,clicking on dropdown", true);
 		user_TypeDropdown.click();
+		Thread.sleep(2000);
 		Reporter.log("Clicked on dropdown", true);
 		Reporter.log("number of elements in userType" + user_Type.size(), true);
 		for (WebElement i : user_Type) {
 			if (i.getAttribute("title").equalsIgnoreCase(usertype)) {
+			//	user_TypeDropdown.click();
 				i.click();
-			} else {
-				Reporter.log("UserType is not found in the UserType dropdown", true);
-			}
+				Thread.sleep(2000);
+				break;
+			} 			
 		}
 	}
+	
+	
+	public boolean alreadyExists() {
+		boolean flag =false;
+	try {
+		if (account_alreadyExists.isDisplayed()) {
+			Reporter.log("User is already registed", true);
+			flag = false;
+		}
+		else {
+			Reporter.log("registration is successful", true);
+			flag = true;		
+			}
+	}catch(NoSuchElementException e) {
 
+	}
+	return flag;
+
+}
 	/**
 	 * verifies Registration page title
 	 * 
@@ -102,27 +127,43 @@ public class RegistrationPagePO {
 	 * @param userType
 	 * @throws InterruptedException --- need to implement explicit waits
 	 */
-	public LoginPagePO registration(String first_Name, String Last_Name, String phone_num, String Email, String pwd,
-			String confirm_pwd, String userType) throws InterruptedException
 
-	{
-		
+	public boolean registration(String first_Name, String Last_Name, String phone_num, String Email, String pwd,
+			String confirm_pwd, String userType) throws InterruptedException {
+
 		cm.enterData(firstName, first_Name);
 		cm.enterData(lastName, Last_Name);
 		cm.enterData(phoneNumber, phone_num);
 		cm.enterData(email, Email);
 		cm.enterData(password, pwd);
 		cm.enterData(confirm_password, confirm_pwd);
+		Thread.sleep(2000);
 		selectUserType(userType);
 		createAccount.click();
-		// capture text after registration
-
-		return new LoginPagePO(this.driver);
-
+		Thread.sleep(2000);
+		
+		return alreadyExists();
+		/*try {
+			account_alreadyExists.isDisplayed();
+			String verifyText = account_alreadyExists.getText();
+			Reporter.log("verifyText captured is"+verifyText,true);
+			Reporter.log("User is already Registered. Use another emailID for registering", true);
+		}catch (NoSuchElementException e) {
+			throw new RuntimeException("This is where you put the message");
+			}*/
+//		if (verifyText.contains(expected_text)) {
+//			Reporter.log("User is already Registered. Use another emailID for registering", true);
+//
+//		} else if (!verifyText.contains(expected_text)) {
+//			Reporter.log("User is Registered. check your registered email account and activate", true);
+//
+//		}		
+//		*/
 	}
-	
-	//generate temp pwd
 
+	
+	
+	// generate temp pwd
 
 	/**
 	 * @author Bhargavi
@@ -134,5 +175,7 @@ public class RegistrationPagePO {
 		Reporter.log("InitElements method Created the webelements", true);
 
 	}
+	
+	
 
 }

@@ -30,7 +30,7 @@ public class FirstPagePO{
 		Reporter.log("inside the goTOLogin method",true);
 		Thread.sleep(3000);
 		login_bt.click();
-		Reporter.log("Clicked on Login",true);
+		Reporter.log("Clicked on Login in the firstpage",true);
 		return new LoginPagePO(this.driver);
 
 	}

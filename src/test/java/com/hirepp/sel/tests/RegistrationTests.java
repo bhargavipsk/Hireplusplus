@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import com.hirepp.sel.po.FirstPagePO;
 import com.hirepp.sel.po.LoginPagePO;
 import com.hirepp.sel.po.RegistrationPagePO;
+import com.hirepp.utils.BaseUtils;
 
 /**
  * This class contains all the TestNG tests on Registrationpage
@@ -15,24 +16,30 @@ import com.hirepp.sel.po.RegistrationPagePO;
 
 public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 
-	LoginPagePO lg;
+	LoginPagePO loginPageObj;
 	RegistrationPagePO reg;
-	FirstPagePO fp;
-
+	FirstPagePO firstPageObj;
+	BaseUtils bu;
+	String expected_text = "already registered";
+	
 	@Test
 	public void registrationTest() throws InterruptedException {
-		
-		Reporter.log("Inside registration test", true);
-		Reporter.log("going to call before method and get the firstpageobject", true);
-		FirstPagePO fp = new FirstPagePO(driver);
-		System.out.println(fp);
-		System.out.println("printing driver insdie registrationtest" + driver);
-		Thread.sleep(3000);
-		lg = fp.goTOLoginPage();
-		reg = lg.fromLoginPageToRegistrationPage();
-		
-		reg.registration("Bhargavi", "psk", "0343433434", "bhargavipsk@gmail.com", "Hash@2020", "Hash@2020",
-				"recruiter");
-	}
+		boolean flag = false;
+		BaseUtils bu = new BaseUtils(driver);
 
+		Reporter.log("Inside registration test", true);
+		FirstPagePO firstPageObj = new FirstPagePO(driver);
+		loginPageObj = firstPageObj.goTOLoginPage();
+		reg = loginPageObj.fromLoginPageToRegistrationPage();
+		Reporter.log("generating temp pwd",true);
+		String tempEmail = bu.temppwdgenerator();
+		
+		flag = reg.registration("test", "emailID", "034300024", tempEmail, "Hash@2020",
+				"Hash@2020", "Recruiter");
+		if(flag) {
+			Reporter.log("registration is successful",true);
+		}
+		else Reporter.log("Registraton failed , register with another emailid",true);
+	}
+	
 }

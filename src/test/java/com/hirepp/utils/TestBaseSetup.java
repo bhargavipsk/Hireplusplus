@@ -58,6 +58,7 @@ public class TestBaseSetup {
 			Reporter.log("Brower is maximized", true);
 			Reporter.log("Entering the URL", true);
 			driver.get(getProp.getPropertyVal("testurl"));
+			Reporter.log("Entered the url" , true);
 		}
 
 		else if (getProp.getPropertyVal("browser").equalsIgnoreCase("edgedriver")) {

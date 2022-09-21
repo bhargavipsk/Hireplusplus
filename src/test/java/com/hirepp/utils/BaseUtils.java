@@ -6,9 +6,12 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Reporter;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * BaseUtils contains re-usable methods that can be called within the pageobject
@@ -118,18 +121,24 @@ public class BaseUtils {
 
 	}
 
-	public void isElementPresent(WebElement element) {
+	public boolean isElementPresent(WebElement element) {
+		boolean flag = false;
 		if (element != null) {
-			Reporter.log("Element is Present", true);
-		} else {
-			Reporter.log("Element is Absent", true);
-
-		}
+			Reporter.log(element + " is Present", true);
+			flag = true;
+			return flag;
+		} 
+		return flag;
 
 	}
 
 	public String temppwdgenerator() throws InterruptedException {
 		String email = " ";
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		Reporter.log("Brower is maximized", true);
+		Reporter.log("Entering the URL", true);
 		driver.get("https://temp-mail.org/en/");
 		Thread.sleep(4000);
 		Reporter.log("Opening temp email generator page", true);
