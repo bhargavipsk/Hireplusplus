@@ -35,6 +35,11 @@ public class BaseUtils {
 		webElement.sendKeys(data);
 	}
 
+	public void Select_ddElementByIndex(WebElement webElement,int i){
+		Select select = new Select(webElement);
+		select.selectByIndex(i);
+	}
+
 	public String Selected_ddElement(WebElement webElement) {
 
 		Select select = new Select(webElement);

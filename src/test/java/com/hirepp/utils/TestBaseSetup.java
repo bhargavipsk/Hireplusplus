@@ -45,7 +45,7 @@ public class TestBaseSetup {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			Reporter.log("Brower is maximized", true);
+			Reporter.log("Browser is maximized", true);
 			Reporter.log("Entering the URL", true);
 			driver.get(getProp.getPropertyVal("testurl"));
 		}
@@ -64,6 +64,8 @@ public class TestBaseSetup {
 		else if (getProp.getPropertyVal("browser").equalsIgnoreCase("edgedriver")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+//			 openBrowser();
+
 			driver.manage().window().maximize();
 			Reporter.log("Brower is maximized", true);
 			Reporter.log("Entering the URL", true);
