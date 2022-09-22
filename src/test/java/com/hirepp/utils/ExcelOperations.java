@@ -1,5 +1,6 @@
 package com.hirepp.utils;
 
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,20 +9,21 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ExcelOperations {
-	public AddJD jdInputsExcel(String ExcelPath,int SheetNumber) throws IOException {
+	public AddJD jdInputsExcel(String ExcelPath,int SheetNumber,int jdno) throws IOException {
         FileInputStream fileInputStream=new FileInputStream(ExcelPath);
         Workbook workbook=new XSSFWorkbook(fileInputStream);
         Sheet sheet= workbook.getSheetAt(SheetNumber);
+        Row row=sheet.getRow(jdno);
         AddJD data=new AddJD();
-        data.clientName=sheet.getRow(1).getCell(1).toString();
-        data.HiringManager=sheet.getRow(2).getCell(1).toString();
-        data.location=sheet.getRow(3).getCell(1).toString();
-        data.numberOfOpenings=sheet.getRow(4).getCell(1).toString();
-        data.jdName=sheet.getRow(5).getCell(1).toString();
-        data.preferredDomain=sheet.getRow(6).getCell(1).toString();
-        data.functionalArea=sheet.getRow(7).getCell(1).toString();
-        data.minSalaryBudget=sheet.getRow(8).getCell(1).toString();
-        data.maxSalaryBudget=sheet.getRow(9).getCell(1).toString();
+        data.clientName=row.getCell(1).toString();
+        data.HiringManager=row.getCell(2).toString();
+        data.location=row.getCell(3).toString();
+        data.numberOfOpenings=row.getCell(4).toString();
+        data.jdName=row.getCell(5).toString();
+        data.preferredDomain=row.getCell(6).toString();
+        data.functionalArea=row.getCell(7).toString();
+        data.minSalaryBudget=row.getCell(8).toString();
+        data.maxSalaryBudget=row.getCell(9).toString();
         return data;
     }
 
