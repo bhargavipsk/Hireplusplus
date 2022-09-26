@@ -6,11 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
-public class ChooseAnOption {
+public class ChooseAnOptionPO {
 
     public WebDriver driver;
 
+    @FindBy(xpath = "//h1[.='Choose an option to fill J.D']") public WebElement ChooseOptionTitle;
     @FindBy(xpath = "//div[@class='drop-file-input']") public WebElement UploadDoc;
+    @FindBy(xpath = "//h4[.='Manually fill the form']") public WebElement ManualFillForm;
 
 
     public JobsPO goToUpload() throws Exception {
@@ -20,9 +22,14 @@ public class ChooseAnOption {
         return new JobsPO(this.driver);
     }
 
+    public RequirementsAndPerksPO goToManualFillForm(){
+        ManualFillForm.click();
+        return new RequirementsAndPerksPO(this.driver);
+    }
 
 
-    public ChooseAnOption(WebDriver driver) {
+
+    public ChooseAnOptionPO(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         Reporter.log("InitElements method Created the webelements", true);
