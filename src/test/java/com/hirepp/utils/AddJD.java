@@ -14,4 +14,10 @@ public class AddJD {
     public  String currencyType;
     public  String minSalaryBudget;
     public  String maxSalaryBudget;
+    public String description;
+    public String requirements;
+    public String perks;
+    public String[] skills;
+    public String skillsAsText;
+    public String moreDetails;
 }

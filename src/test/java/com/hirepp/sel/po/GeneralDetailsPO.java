@@ -22,7 +22,7 @@ public class GeneralDetailsPO {
     @FindBy(xpath = "//input[@placeholder='Max Salary']") public WebElement maxSalary;
     @FindBy(xpath = "//button[.='Next']") public WebElement generalDetailsNext;
 
-    public ChooseAnOption goToChooseOptionPage(AddJD data) throws InterruptedException {
+    public ChooseAnOptionPO goToChooseOptionPage(AddJD data) throws InterruptedException {
         Reporter.log("Inside the goToChooseOptionPage",true);
         cm.Select_ddElementByIndex(employmentType,1);
         domain.sendKeys(data.preferredDomain);
@@ -32,7 +32,7 @@ public class GeneralDetailsPO {
         maxSalary.sendKeys(data.maxSalaryBudget);
         Thread.sleep(5000);
         generalDetailsNext.click();
-        return new ChooseAnOption(this.driver);
+        return new ChooseAnOptionPO(this.driver);
     }
 
     public GeneralDetailsPO(WebDriver driver){
