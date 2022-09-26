@@ -19,9 +19,10 @@ public class RequirementsAndPerksPO {
 
 
     public ExperienceAndSkillsPO goToExperience(AddJD data){
+        Reporter.log("inside the goToExperience",true);
         jobDescription.sendKeys(data.description);
         Requirements.sendKeys(data.requirements);
-        perks.sendKeys(data.perks);
+//        perks.sendKeys(data.perks);
         requirementsAndPerksNext.click();
         return new ExperienceAndSkillsPO(this.driver);
     }

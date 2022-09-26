@@ -13,6 +13,7 @@ public class ReviewJdPO {
     @FindBy(xpath = "//button[.='Confirm and Save']") public WebElement confirmAndSave;
 
     public JobsPO goToJob(){
+        Reporter.log("inside goToJobs",true);
         confirmAndSave.click();
         return new JobsPO(this.driver);
     }

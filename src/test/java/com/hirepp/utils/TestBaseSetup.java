@@ -74,12 +74,12 @@ public class TestBaseSetup {
 		return new FirstPagePO(this.driver);
 	}
 
-	/*@AfterMethod
+//	@AfterMethod
 	public void tearDown() throws InterruptedException {
 		Reporter.log("Inside the teardown", true);
 		driver.close();
 		Reporter.log("Teardown is successful", true);
-	}*/
+	}
 
 	/*
 	 * public WebDriver openBrowser() { driver.manage().window().maximize();

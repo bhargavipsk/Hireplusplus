@@ -17,6 +17,7 @@ public class AddMoreDetailsPO {
 
 
     public ReviewJdPO goToReviewJD(AddJD data){
+        Reporter.log("inside goToReviewJD method",true);
         moreDetails.sendKeys(data.moreDetails);
         addMoreDetailsNext.click();
         return new ReviewJdPO(this.driver);

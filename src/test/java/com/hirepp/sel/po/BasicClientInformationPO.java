@@ -2,10 +2,7 @@ package com.hirepp.sel.po;
 
 import com.hirepp.utils.AddJD;
 import com.hirepp.utils.BaseUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -35,23 +32,24 @@ public class BasicClientInformationPO {
         hiringManager.sendKeys(data.HiringManager);
         cm.Select_ddElementByIndex(locationType,1);
         location.sendKeys(data.location);
-        openings.sendKeys(data.numberOfOpenings);
+        openings.sendKeys(Keys.NUMPAD1);
         jobTitle.sendKeys(data.jdName);
 //        Point dateloc = joiningDate.getLocation();
 //        System.out.println(dateloc);
 
-        Actions actions=new Actions(driver);
-        actions.moveToElement(joiningDate).click().perform();
-        actions.moveToElement(joiningDate,125,-30).click().perform();
-        actions.build().perform();
+//        Actions actions=new Actions(driver);
+//        actions.moveToElement(joiningDate).click().perform();
+//        actions.moveToElement(joiningDate,125,-30).click().perform();
+//        actions.build().perform();
 
 
 //        JavascriptExecutor jse = (JavascriptExecutor)driver;
 //        jse.executeScript("document.getElementById('hirePPDateOfJoining').setAttribute('value', '2022-09-22')");
 //        joiningDate.clear();
-//        joiningDate.sendKeys("20221010");
-        String date = joiningDate.getAttribute("value");
-        System.out.println(date);
+//       String  date = joiningDate.getAttribute("min");
+        joiningDate.sendKeys("10-10-2022");
+
+
         clientInfoNext.click();
         return new GeneralDetailsPO(this.driver);
 

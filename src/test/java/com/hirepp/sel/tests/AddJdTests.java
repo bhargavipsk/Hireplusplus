@@ -19,7 +19,7 @@ public class AddJdTests extends TestBaseSetup {
     GeneralDetailsPO generalDetailsPO;
     ChooseAnOptionPO chooseAnOptionPO;
     RequirementsAndPerksPO requirementsAndPerksPO;
-    ExperienceAndSkillsPO experienceAndSlillsPO;
+    ExperienceAndSkillsPO experienceAndSkillsPO;
     AddMoreDetailsPO addMoreDetailsPO;
     ReviewJdPO reviewJdPO;
 
@@ -39,7 +39,6 @@ public class AddJdTests extends TestBaseSetup {
         jobsPO=sideBarPO.goTOJobsPage();
         Thread.sleep(5000);
         basicClientInformationPO=jobsPO.goTOAddJDPage();
-        Thread.sleep(5000);
         AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);
         Thread.sleep(5000);
         generalDetailsPO=basicClientInformationPO.goToGeneralDetailsPage(data);
@@ -49,13 +48,12 @@ public class AddJdTests extends TestBaseSetup {
         chooseAnOptionPO.goToUpload();
         Thread.sleep(5000);
 
-
-
     }
 
-    @Test
+//    @Test
     public void addJdManualFillFormTest() throws Exception {
         Reporter.log("Inside Add Jd test",true);
+        AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);
         FirstPagePO firstPagePO=new FirstPagePO(driver);
         Thread.sleep(5000);
         login_po=firstPagePO.goTOLoginPage();
@@ -68,7 +66,6 @@ public class AddJdTests extends TestBaseSetup {
         Thread.sleep(5000);
         basicClientInformationPO=jobsPO.goTOAddJDPage();
         Thread.sleep(5000);
-        AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);
         Thread.sleep(5000);
         generalDetailsPO=basicClientInformationPO.goToGeneralDetailsPage(data);
         Thread.sleep(5000);
@@ -76,9 +73,10 @@ public class AddJdTests extends TestBaseSetup {
         Thread.sleep(5000);
         requirementsAndPerksPO=chooseAnOptionPO.goToManualFillForm();
         Thread.sleep(5000);
-        experienceAndSlillsPO=requirementsAndPerksPO.goToExperience(data);
+//        data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD",1);
+        experienceAndSkillsPO =requirementsAndPerksPO.goToExperience(data);
         Thread.sleep(5000);
-        addMoreDetailsPO=experienceAndSlillsPO.goToMoreDetails(data);
+        addMoreDetailsPO= experienceAndSkillsPO.goToMoreDetails(data);
         Thread.sleep(5000);
         reviewJdPO=addMoreDetailsPO.goToReviewJD(data);
         Thread.sleep(5000);
@@ -87,4 +85,5 @@ public class AddJdTests extends TestBaseSetup {
 
 
 
+}
 }

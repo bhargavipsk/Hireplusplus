@@ -24,6 +24,7 @@ public class ExperienceAndSkillsPO {
 
 
     public AddMoreDetailsPO goToMoreDetails(AddJD data){
+        Reporter.log("inside goToMoreDetails method",true);
         baseUtils.Select_ddElementByIndex(minimumExperience,1);
         baseUtils.Select_ddElementByIndex(maximumExperience,3);
         for(String skill:data.skills){

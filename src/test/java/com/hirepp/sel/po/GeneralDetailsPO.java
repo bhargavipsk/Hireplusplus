@@ -2,6 +2,7 @@ package com.hirepp.sel.po;
 
 import com.hirepp.utils.AddJD;
 import com.hirepp.utils.BaseUtils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,8 +29,8 @@ public class GeneralDetailsPO {
         domain.sendKeys(data.preferredDomain);
         functionalArea.sendKeys(data.functionalArea);
         cm.Select_ddElementByIndex(currency,1);
-        minSalary.sendKeys(data.minSalaryBudget);
-        maxSalary.sendKeys(data.maxSalaryBudget);
+        minSalary.sendKeys(Keys.NUMPAD1);
+        maxSalary.sendKeys(Keys.NUMPAD2);
         Thread.sleep(5000);
         generalDetailsNext.click();
         return new ChooseAnOptionPO(this.driver);

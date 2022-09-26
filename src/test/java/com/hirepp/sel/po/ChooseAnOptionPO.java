@@ -17,12 +17,13 @@ public class ChooseAnOptionPO {
 
     public JobsPO goToUpload() throws Exception {
         UploadDoc.click();
-        Thread.sleep(5000);
-        Runtime.getRuntime().exec("./ScriptsDocs/JdUpload.exe");
+        Thread.sleep(10000);
+        Runtime.getRuntime().exec(".\\ScriptsDocs\\JdUpload.exe");
         return new JobsPO(this.driver);
     }
 
     public RequirementsAndPerksPO goToManualFillForm(){
+        Reporter.log("goToManualFillForm method",true);
         ManualFillForm.click();
         return new RequirementsAndPerksPO(this.driver);
     }
