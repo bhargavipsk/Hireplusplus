@@ -73,7 +73,7 @@ public class AddJdTests extends TestBaseSetup {
         Thread.sleep(5000);
         requirementsAndPerksPO=chooseAnOptionPO.goToManualFillForm();
         Thread.sleep(5000);
-//        data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD",1);
+        data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD",1);
         experienceAndSkillsPO =requirementsAndPerksPO.goToExperience(data);
         Thread.sleep(5000);
         addMoreDetailsPO= experienceAndSkillsPO.goToMoreDetails(data);
