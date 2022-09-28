@@ -21,10 +21,11 @@ public class ChooseAnOptionPO {
 
     public JobsPO goToUpload() throws Exception {
         UploadDoc.click();
+        getProp.loadConfigFile();
         String browser = getProp.getPropertyVal("browser");
         Thread.sleep(10000);
         if(browser.equalsIgnoreCase("chrome")){
-            baseUtils.uploadDoc("");
+            baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeJdUpload.exe");
         }
         if(browser.equalsIgnoreCase("firefox")) {
             baseUtils.uploadDoc(".\\ScriptsDocs\\JdUpload.exe");

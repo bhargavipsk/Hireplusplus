@@ -8,6 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class ExcelOperations {
     }
 
     public List<String> skillEntry(String excelPath, int jdno) throws IOException {
-        List<String> skill = null;
+        List<String> skill = new ArrayList<String>();
         Sheet sheet1 = ExcelData(excelPath, "Skills");
         Row row1=sheet1.getRow(jdno);
         int i=0;

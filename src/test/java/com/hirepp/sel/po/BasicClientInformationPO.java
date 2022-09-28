@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
+import java.io.IOException;
+
 
 public class BasicClientInformationPO {
 
@@ -27,7 +29,7 @@ public class BasicClientInformationPO {
     @FindBy(xpath = "//button[.='Next']") public WebElement clientInfoNext;
 
 
-    public GeneralDetailsPO goToGeneralDetailsPage(AddJD data) throws InterruptedException {
+    public GeneralDetailsPO goToGeneralDetailsPage(AddJD data) throws InterruptedException, IOException {
         Reporter.log("inside the goTOGeneralDetails method",true);
         Thread.sleep(3000);
         baseUtils.enterData(clientName,data.clientName);
@@ -37,6 +39,7 @@ public class BasicClientInformationPO {
         baseUtils.enterData(openings,String.valueOf(Keys.NUMPAD1));
         baseUtils.enterData(jobTitle,data.jdName);
         String date=baseUtils.getAttributeVal(joiningDate,"min");
+        getProp.loadConfigFile();
         date=baseUtils.dateEntering(date, getProp.getPropertyVal("browser"));
         baseUtils.enterData(joiningDate,date);
         clientInfoNext.click();
