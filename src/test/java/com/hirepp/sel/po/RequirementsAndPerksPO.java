@@ -1,6 +1,7 @@
 package com.hirepp.sel.po;
 
 import com.hirepp.utils.AddJD;
+import com.hirepp.utils.BaseUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,6 +10,7 @@ import org.testng.Reporter;
 
 public class RequirementsAndPerksPO {
     WebDriver driver;
+    BaseUtils baseUtils=new BaseUtils(driver);
 
     @FindBy(xpath = "//h1[.='Requirements and perks']") public WebElement requirementsAndPerksTitle;
     @FindBy(xpath = "//label[.='Job Description']/following-sibling::textarea") public WebElement jobDescription;
@@ -20,9 +22,8 @@ public class RequirementsAndPerksPO {
 
     public ExperienceAndSkillsPO goToExperience(AddJD data){
         Reporter.log("inside the goToExperience",true);
-        jobDescription.sendKeys(data.description);
-        Requirements.sendKeys(data.requirements);
-//        perks.sendKeys(data.perks);
+        baseUtils.enterData(jobDescription,data.description);
+        baseUtils.enterData(Requirements,data.requirements);
         requirementsAndPerksNext.click();
         return new ExperienceAndSkillsPO(this.driver);
     }

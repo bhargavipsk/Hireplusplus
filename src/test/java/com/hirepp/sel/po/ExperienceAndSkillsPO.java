@@ -28,7 +28,7 @@ public class ExperienceAndSkillsPO {
         baseUtils.Select_ddElementByIndex(minimumExperience,1);
         baseUtils.Select_ddElementByIndex(maximumExperience,3);
         for(String skill:data.skills){
-            skillName.sendKeys(skill);
+            baseUtils.enterData(skillName,skill);
             skillAdd.click();
         }
         experienceAndSkillsNext.click();

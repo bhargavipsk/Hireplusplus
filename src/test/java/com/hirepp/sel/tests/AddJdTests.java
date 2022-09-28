@@ -50,7 +50,7 @@ public class AddJdTests extends TestBaseSetup {
 
     }
 
-//    @Test
+    @Test
     public void addJdManualFillFormTest() throws Exception {
         Reporter.log("Inside Add Jd test",true);
         AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);

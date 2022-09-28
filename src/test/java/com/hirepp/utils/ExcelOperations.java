@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 
 public class ExcelOperations {
 
@@ -32,9 +33,6 @@ public class ExcelOperations {
         data.minSalaryBudget=row.getCell(8).getNumericCellValue();
         data.maxSalaryBudget=row.getCell(9).getNumericCellValue();
 
-
-
-
         return data;
     }
 
@@ -47,19 +45,25 @@ public class ExcelOperations {
         data.perks=row.getCell(12).toString();
         data.skillsAsText=row.getCell(13).toString();
         data.moreDetails=row.getCell(14).toString();
+        data.skills=skillEntry(excelPath,1);
+        return data;
+
+
+    }
+
+    public List<String> skillEntry(String excelPath, int jdno) throws IOException {
+        List<String> skill = null;
         Sheet sheet1 = ExcelData(excelPath, "Skills");
         Row row1=sheet1.getRow(jdno);
         int i=0;
         Iterator<Cell> cell = row1.iterator();
-        Cell cell1 = cell.next();
+        Cell cell1;
         while (cell.hasNext()){
-            data.skills.add(cell1.getStringCellValue());
-            i++;
             cell1=cell.next();
+            skill.add(cell1.getStringCellValue());
+            i++;
         }
-            return data;
-
-
+        return skill;
     }
 
 }
