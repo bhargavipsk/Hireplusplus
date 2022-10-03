@@ -1,5 +1,7 @@
 package com.hirepp.sel.tests;
 
+import java.io.IOException;
+
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -7,6 +9,7 @@ import com.hirepp.sel.po.FirstPagePO;
 import com.hirepp.sel.po.LoginPagePO;
 import com.hirepp.sel.po.RegistrationPagePO;
 import com.hirepp.utils.BaseUtils;
+import com.hirepp.utils.config;
 
 /**
  * This class contains all the TestNG tests on Registrationpage
@@ -19,27 +22,24 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 	LoginPagePO loginPageObj;
 	RegistrationPagePO reg;
 	FirstPagePO firstPageObj;
-	BaseUtils bu;
-	String expected_text = "already registered";
-	
-	@Test
-	public void registrationTest() throws InterruptedException {
-		boolean flag = false;
-		BaseUtils bu = new BaseUtils(driver);
+//	String expected_text = "already registered";
+	config getProp = new config();
 
-		Reporter.log("Inside registration test", true);
+	@Test
+	public void registrationTest() throws InterruptedException, IOException {
+		boolean flag = false;
 		FirstPagePO firstPageObj = new FirstPagePO(driver);
 		loginPageObj = firstPageObj.goTOLoginPage();
 		reg = loginPageObj.fromLoginPageToRegistrationPage();
-		Reporter.log("generating temp pwd",true);
-		String tempEmail = bu.temppwdgenerator();
-		
-		flag = reg.registration("test", "emailID", "034300024", tempEmail, "Hash@2020",
-				"Hash@2020", "Recruiter");
-		if(flag) {
-			Reporter.log("registration is successful",true);
-		}
-		else Reporter.log("Registraton failed , register with another emailid",true);
+		getProp.loadConfigFile();
+		String password = getProp.getPropertyVal("password");
+		String tempEmail = reg.createTempEmail1();
+		reg.registrationWithTmpEmail("FN:"+tempEmail, "LN:"+tempEmail, "034300024", tempEmail + "@mail7.io", password, password,
+				"Recruiter");
+		reg.RegistrationActivation();
+		loginPageObj = new LoginPagePO(driver);
+		loginPageObj.Login_HirePP(tempEmail + "@mail7.io", password);
+
 	}
-	
+
 }

@@ -11,7 +11,7 @@
       <![CDATA[Inside the getPropertyVal method]]>
     </line>
     <line>
-      <![CDATA[Brower is maximized]]>
+      <![CDATA[Browser is maximized]]>
     </line>
     <line>
       <![CDATA[Entering the URL]]>
@@ -24,12 +24,6 @@
     </line>
     <line>
       <![CDATA[InitElements method Created the webelements of login]]>
-    </line>
-    <line>
-      <![CDATA[Inside the BaseUtils constructor]]>
-    </line>
-    <line>
-      <![CDATA[Inside registration test]]>
     </line>
     <line>
       <![CDATA[Inside the BaseUtils constructor]]>
@@ -65,16 +59,25 @@
       <![CDATA[InitElements method Created the webelements]]>
     </line>
     <line>
-      <![CDATA[generating temp pwd]]>
+      <![CDATA[Inside loadConfigFile method]]>
     </line>
     <line>
-      <![CDATA[Brower is maximized]]>
+      <![CDATA[Inside the getPropertyVal method]]>
     </line>
     <line>
-      <![CDATA[Entering the URL]]>
+      <![CDATA[Inside loadConfigFile method]]>
+    </line>
+    <line>
+      <![CDATA[Inside the getPropertyVal method]]>
+    </line>
+    <line>
+      <![CDATA[Test Email =tester.hire34]]>
     </line>
     <line>
       <![CDATA[Opening temp email generator page]]>
+    </line>
+    <line>
+      <![CDATA[Temp Mail created Successfully]]>
     </line>
     <line>
       <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
@@ -86,15 +89,81 @@
       <![CDATA[number of elements in userType4]]>
     </line>
     <line>
-      <![CDATA[Registraton failed , register with another emailid]]>
+      <![CDATA[printing the hireWindow handle8656a463-7c83-4779-8957-2873ecd10116]]>
+    </line>
+    <line>
+      <![CDATA[Inside the RegistrationActivation ]]>
+    </line>
+    <line>
+      <![CDATA[Printing the window handle of mailwindow before refreshing8656a463-7c83-4779-8957-2873ecd10116]]>
+    </line>
+    <line>
+      <![CDATA[Hireplusplus window8656a463-7c83-4779-8957-2873ecd10116]]>
+    </line>
+    <line>
+      <![CDATA[Switching to mailWindow]]>
+    </line>
+    <line>
+      <![CDATA[Clicking on Refresh button ]]>
+    </line>
+    <line>
+      <![CDATA[clicking on the email to open]]>
+    </line>
+    <line>
+      <![CDATA[Clicking on Activate Account]]>
+    </line>
+    <line>
+      <![CDATA[Clicked on Activate Account]]>
+    </line>
+    <line>
+      <![CDATA[Now navigating back to HirePlusPlus window]]>
+    </line>
+    <line>
+      <![CDATA[Switched to the window]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[Inside the BaseUtils constructor]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[Inside Login_HirePP method]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Entering the EmailID]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Entering the password]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //button[text()='Login']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Clicking the Login button]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="30628" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:31Z">
+  <suite name="Default suite" duration-ms="82082" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:26:34Z">
     <groups>
     </groups>
-    <test name="Test_1" duration-ms="30628" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:31Z">
+    <test name="Default test" duration-ms="82082" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:26:34Z">
       <class name="com.hirepp.sel.tests.RegistrationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="setUp" is-config="true" duration-ms="5649" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:06Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@13e39c73]" name="setUp" is-config="true" duration-ms="6047" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:25:18Z">
           <reporter-output>
             <line>
               <![CDATA[Inside if block of driver==null]]>
@@ -106,7 +175,7 @@
               <![CDATA[Inside the getPropertyVal method]]>
             </line>
             <line>
-              <![CDATA[Brower is maximized]]>
+              <![CDATA[Browser is maximized]]>
             </line>
             <line>
               <![CDATA[Entering the URL]]>
@@ -122,14 +191,8 @@
             </line>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="registrationTest" duration-ms="24949" started-at="2022-09-21T09:22:06Z" finished-at="2022-09-21T09:22:31Z">
+        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@13e39c73]" name="registrationTest" duration-ms="76009" started-at="2022-09-30T12:25:18Z" finished-at="2022-09-30T12:26:34Z">
           <reporter-output>
-            <line>
-              <![CDATA[Inside the BaseUtils constructor]]>
-            </line>
-            <line>
-              <![CDATA[Inside registration test]]>
-            </line>
             <line>
               <![CDATA[Inside the BaseUtils constructor]]>
             </line>
@@ -164,16 +227,25 @@
               <![CDATA[InitElements method Created the webelements]]>
             </line>
             <line>
-              <![CDATA[generating temp pwd]]>
+              <![CDATA[Inside loadConfigFile method]]>
             </line>
             <line>
-              <![CDATA[Brower is maximized]]>
+              <![CDATA[Inside the getPropertyVal method]]>
             </line>
             <line>
-              <![CDATA[Entering the URL]]>
+              <![CDATA[Inside loadConfigFile method]]>
+            </line>
+            <line>
+              <![CDATA[Inside the getPropertyVal method]]>
+            </line>
+            <line>
+              <![CDATA[Test Email =tester.hire34]]>
             </line>
             <line>
               <![CDATA[Opening temp email generator page]]>
+            </line>
+            <line>
+              <![CDATA[Temp Mail created Successfully]]>
             </line>
             <line>
               <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
@@ -185,11 +257,77 @@
               <![CDATA[number of elements in userType4]]>
             </line>
             <line>
-              <![CDATA[Registraton failed , register with another emailid]]>
+              <![CDATA[printing the hireWindow handle8656a463-7c83-4779-8957-2873ecd10116]]>
+            </line>
+            <line>
+              <![CDATA[Inside the RegistrationActivation ]]>
+            </line>
+            <line>
+              <![CDATA[Printing the window handle of mailwindow before refreshing8656a463-7c83-4779-8957-2873ecd10116]]>
+            </line>
+            <line>
+              <![CDATA[Hireplusplus window8656a463-7c83-4779-8957-2873ecd10116]]>
+            </line>
+            <line>
+              <![CDATA[Switching to mailWindow]]>
+            </line>
+            <line>
+              <![CDATA[Clicking on Refresh button ]]>
+            </line>
+            <line>
+              <![CDATA[clicking on the email to open]]>
+            </line>
+            <line>
+              <![CDATA[Clicking on Activate Account]]>
+            </line>
+            <line>
+              <![CDATA[Clicked on Activate Account]]>
+            </line>
+            <line>
+              <![CDATA[Now navigating back to HirePlusPlus window]]>
+            </line>
+            <line>
+              <![CDATA[Switched to the window]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[Inside the BaseUtils constructor]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[Inside Login_HirePP method]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Entering the EmailID]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Entering the password]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //button[text()='Login']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Clicking the Login button]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
             </line>
           </reporter-output>
         </test-method> <!-- registrationTest -->
       </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
-    </test> <!-- Test_1 -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
