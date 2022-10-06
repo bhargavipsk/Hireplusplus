@@ -7,6 +7,7 @@
         <methods>
           <include name="registrationTest"/>
           <include name="setUp"/>
+          <include name="addJdUploadTest"/>
         </methods>
       </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
     </classes>

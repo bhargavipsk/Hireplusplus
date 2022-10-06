@@ -9,14 +9,14 @@ public class AddJD {
     public  String locationType;
     public  String location;
     public  String HiringManager;
-    public  double numberOfOpenings;
+    public  int numberOfOpenings;
     public  String clientName;
     public  String jobEngagementType;
     public  String preferredDomain;
     public  String functionalArea;
     public  String currencyType;
-    public  double minSalaryBudget;
-    public  double maxSalaryBudget;
+    public  long minSalaryBudget;
+    public  long maxSalaryBudget;
     public String description;
     public String requirements;
     public String perks;

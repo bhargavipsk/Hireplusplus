@@ -29,8 +29,11 @@ public class GeneralDetailsPO {
         domain.sendKeys(data.preferredDomain);
         functionalArea.sendKeys(data.functionalArea);
         cm.Select_ddElementByIndex(currency,1);
-        minSalary.sendKeys(Keys.NUMPAD1);
-        maxSalary.sendKeys(Keys.NUMPAD2);
+      //  minSalary.sendKeys(Keys.NUMPAD1);
+       // maxSalary.sendKeys(Keys.NUMPAD2);
+        minSalary.sendKeys(String.valueOf(data.minSalaryBudget));
+        maxSalary.sendKeys(String.valueOf(data.maxSalaryBudget));
+   
         Thread.sleep(5000);
         generalDetailsNext.click();
         return new ChooseAnOptionPO(this.driver);

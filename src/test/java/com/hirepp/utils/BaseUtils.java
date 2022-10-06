@@ -176,8 +176,17 @@ public class BaseUtils {
 		return flag;
 
 	}
+	
+	/**
+	 * The temppwdgenerator is used to generate temporary emailID
+	 * But it's not opening the registration email.
+	 * Automated clicking on the website is not allowed.
+	 * @throws InterruptedException 
+	 * @throws IOException 
+	 * 
+	 */
 
-	public String temppwdgenerator() throws InterruptedException {
+	/*public String temppwdgenerator() throws InterruptedException {
 		String email = " ";
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
@@ -195,6 +204,12 @@ public class BaseUtils {
 		}
 		return email;
 
-	}
+	}*/
+	
+	
+	
+	
+	
+
 
 }

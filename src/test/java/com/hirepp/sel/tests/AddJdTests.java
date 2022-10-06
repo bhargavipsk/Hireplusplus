@@ -9,9 +9,9 @@ import org.testng.annotations.Test;
 
 public class AddJdTests extends TestBaseSetup {
 
-    String email="kongarir@bridgentech.com";
+ /*   String email="kongarir@bridgentech.com";
     String password="recruiter";
-    LoginPagePO login_po;
+    LoginPagePO login_po;  */
     DashboardPagePO dashboardPagePO;
     SideBarPO sideBarPO;
     JobsPO jobsPO;
@@ -27,13 +27,13 @@ public class AddJdTests extends TestBaseSetup {
 
     @Test
     public void addJdUploadTest() throws Exception {
-        Reporter.log("Inside Add Jd test",true);
+  /*      Reporter.log("Inside Add Jd test",true);
         FirstPagePO firstPagePO=new FirstPagePO(driver);
         Thread.sleep(5000);
         login_po=firstPagePO.goTOLoginPage();
         Thread.sleep(5000);
         dashboardPagePO=login_po.Login_HirePP(email,password);
-        Thread.sleep(5000);
+        Thread.sleep(5000); */
         sideBarPO=new SideBarPO(driver);
         Thread.sleep(5000);
         jobsPO=sideBarPO.goTOJobsPage();
@@ -54,7 +54,7 @@ public class AddJdTests extends TestBaseSetup {
     public void addJdManualFillFormTest() throws Exception {
         Reporter.log("Inside Add Jd test",true);
         AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);
-        FirstPagePO firstPagePO=new FirstPagePO(driver);
+        /*FirstPagePO firstPagePO=new FirstPagePO(driver);
         Thread.sleep(5000);
         login_po=firstPagePO.goTOLoginPage();
         Thread.sleep(5000);
@@ -62,7 +62,7 @@ public class AddJdTests extends TestBaseSetup {
         Thread.sleep(5000);
         sideBarPO=new SideBarPO(driver);
         Thread.sleep(5000);
-        jobsPO=sideBarPO.goTOJobsPage();
+        */jobsPO=sideBarPO.goTOJobsPage();
         Thread.sleep(5000);
         basicClientInformationPO=jobsPO.goTOAddJDPage();
         Thread.sleep(5000);
