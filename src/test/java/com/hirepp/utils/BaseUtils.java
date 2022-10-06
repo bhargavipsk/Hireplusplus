@@ -9,7 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -25,6 +28,7 @@ public class BaseUtils {
 
 	public WebDriver driver;
 	config gp = new config();
+	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 
 	public BaseUtils(WebDriver driver) {
 		Reporter.log("Inside the BaseUtils constructor", true);
@@ -79,6 +83,22 @@ public class BaseUtils {
 
 	}
 
+	public void elementVisibleWait(WebElement element){
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+
+	public void elementClickableWait(WebElement element){
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+
+	public void elementSelectableWait(WebElement element){
+		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+
+	public void pageVerification(String element,String title){
+		Assert.assertEquals(element,title);
+	}
+
 	/**
 	 * Verifies whether text is present or not
 	 * 
@@ -130,6 +150,7 @@ public class BaseUtils {
 	public void uploadDoc(String exePath) throws IOException {
 		Runtime.getRuntime().exec(exePath);
 	}
+
 
 	public String dateEntering(String date,String browser){
 		String[] split = date.split("-");
