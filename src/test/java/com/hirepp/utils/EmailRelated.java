@@ -1,10 +1,15 @@
 package com.hirepp.utils;
 
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,44 +20,26 @@ public class EmailRelated {
 			WebDriverManager.chromedriver().setup();
 			WebDriver driver = new ChromeDriver();	
 			driver.manage().window().maximize();
-			driver.get("https://mail7.io/");
+			driver.get("https://platform.dev.hireplusplus.com/allJd");
 			Thread.sleep(4000);
-			Reporter.log("Opening temp email generator page", true);
+			
+			
+			driver.findElement(By.xpath("//a[text()='Log in")).click();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+			
+			WebElement emailID = driver.findElement(By.xpath("//input[@placeholder='Enter email Id']"));
 		
-			WebElement inputbox = driver.findElement(By.name("username"));
-			inputbox.click();
-			inputbox.sendKeys("tester.plus1");
-					
-//call registration function here			
-			WebElement inboxBtn = driver.findElement(By.xpath("//input[@value='Go to inbox']"));
-			inboxBtn.click();
 			
-			Thread.sleep(4000);
+			/*
+			.sendKeys(");
+			@FindBy(how = How.XPATH, using = ")
+			public WebElement emailId;
+			@FindBy(how = How.XPATH, using = "//input[@placeholder='Enter your password']")
+			public WebElement password;
+			@FindBy(how = How.XPATH, using = "//button[text()='Login']")
+			public WebElement Login_btn;
 
-		//	driver.findElement(By.xpath(("//ul[@class='message-list']/li[1]"))).click();
-		//	driver.findElement(By.xpath("//p[@class='title']/b[contains(text(),'Mail7')]"));
-			
-			driver.findElement(By.xpath("//div[@class='subject']/b[contains(text(),'Registration')]")).click(); ;
-			
-			Thread.sleep(2000);
-			
-
-			WebElement fr = driver.findElement(By.xpath("//div[@class='message']/iframe"));
-
-			Thread.sleep(2000);
-			
-			driver.switchTo().frame(fr);
-			
-			
-			System.out.println("switched to frame");
-			Thread.sleep(2000);
-
-			driver.findElement(By.xpath("//button[contains(text(),'Activate Account')]")).click();
-			
-			if(driver.findElement(By.xpath("//pre[contains(text(),'successful')")).isDisplayed()){
-				System.out.println("The verification is successful login to the application");
-			}
 		
-	}
-
-}
+*/	
+		}	
+		}
