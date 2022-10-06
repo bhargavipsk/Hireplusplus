@@ -127,6 +127,24 @@ public class BaseUtils {
 
 	}
 
+	public void uploadDoc(String exePath) throws IOException {
+		Runtime.getRuntime().exec(exePath);
+	}
+
+	public String dateEntering(String date,String browser){
+		String[] split = date.split("-");
+		String returningDate = "";
+		if(browser.equalsIgnoreCase("chrome")){
+			returningDate=split[2]+"-"+split[1]+"-"+split[0];
+			return returningDate;
+		}
+		if(browser.equalsIgnoreCase("firefox")){
+			returningDate=split[0]+"-"+split[1]+"-"+split[2];
+			return returningDate;
+		}
+		return returningDate;
+	}
+
 	public boolean isElementPresent(WebElement element) {
 		boolean flag = false;
 		if (element != null) {

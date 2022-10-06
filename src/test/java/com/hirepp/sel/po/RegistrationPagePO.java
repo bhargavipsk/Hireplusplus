@@ -159,8 +159,8 @@ public class RegistrationPagePO {
 			driver.switchTo().window(mailWindow);
 		}
 		// refresh the page to display the registration page
-		Reporter.log("Clicking on Refresh button ", true);
-		driver.navigate().refresh();
+/*		Reporter.log("Clicking on Refresh button ", true);
+*/		driver.navigate().refresh();
 		Thread.sleep(10000);
 		System.out.println("Printing the window handle of mailwindow" + mailWindow);
 		driver.findElement(By.xpath("//p[@class='title']/b[contains(text(),'Hire++')]")).click();

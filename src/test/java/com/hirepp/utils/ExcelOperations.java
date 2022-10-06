@@ -27,12 +27,12 @@ public class ExcelOperations {
         data.clientName=row.getCell(1).toString();
         data.HiringManager=row.getCell(2).toString();
         data.location=row.getCell(3).toString();
-        data.numberOfOpenings=row.getCell(4).getNumericCellValue();
+        data.numberOfOpenings=(int)row.getCell(4).getNumericCellValue();
         data.jdName=row.getCell(5).toString();
         data.preferredDomain=row.getCell(6).toString();
         data.functionalArea=row.getCell(7).toString();
-        data.minSalaryBudget=row.getCell(8).getNumericCellValue();
-        data.maxSalaryBudget=row.getCell(9).getNumericCellValue();
+        data.minSalaryBudget=(long)row.getCell(8).getNumericCellValue();
+        data.maxSalaryBudget=(long)row.getCell(9).getNumericCellValue();
 
         return data;
     }

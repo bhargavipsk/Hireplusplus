@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import com.hirepp.sel.po.FirstPagePO;
 
@@ -33,7 +34,7 @@ public class TestBaseSetup {
 	 * 
 	 * 
 	 */
-	@BeforeMethod
+	@BeforeSuite
 	public FirstPagePO setUp() throws IOException {
 		System.out.println("driver = " + driver);
 		if (driver == null) {

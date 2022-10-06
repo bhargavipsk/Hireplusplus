@@ -36,7 +36,8 @@ public class BasicClientInformationPO {
         baseUtils.enterData(hiringManager,data.HiringManager);
         baseUtils.Select_ddElementByIndex(locationType,1);
         baseUtils.enterData(location,data.location);
-        baseUtils.enterData(openings,String.valueOf(Keys.NUMPAD1));
+ //       baseUtils.enterData(openings,String.valueOf(Keys.NUMPAD1));
+        baseUtils.enterData(openings,String.valueOf(data.numberOfOpenings));
         baseUtils.enterData(jobTitle,data.jdName);
         String date=baseUtils.getAttributeVal(joiningDate,"min");
         getProp.loadConfigFile();

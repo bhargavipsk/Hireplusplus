@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
     <line>
       <![CDATA[Inside if block of driver==null]]>
@@ -71,7 +71,7 @@
       <![CDATA[Inside the getPropertyVal method]]>
     </line>
     <line>
-      <![CDATA[Test Email =tester.hire34]]>
+      <![CDATA[Test Email =tester.hir05]]>
     </line>
     <line>
       <![CDATA[Opening temp email generator page]]>
@@ -89,22 +89,19 @@
       <![CDATA[number of elements in userType4]]>
     </line>
     <line>
-      <![CDATA[printing the hireWindow handle8656a463-7c83-4779-8957-2873ecd10116]]>
+      <![CDATA[printing the hireWindow handle38b30845-c924-4878-88d0-4ef8ade79d8b]]>
     </line>
     <line>
       <![CDATA[Inside the RegistrationActivation ]]>
     </line>
     <line>
-      <![CDATA[Printing the window handle of mailwindow before refreshing8656a463-7c83-4779-8957-2873ecd10116]]>
+      <![CDATA[Printing the window handle of mailwindow before refreshing38b30845-c924-4878-88d0-4ef8ade79d8b]]>
     </line>
     <line>
-      <![CDATA[Hireplusplus window8656a463-7c83-4779-8957-2873ecd10116]]>
+      <![CDATA[Hireplusplus window38b30845-c924-4878-88d0-4ef8ade79d8b]]>
     </line>
     <line>
       <![CDATA[Switching to mailWindow]]>
-    </line>
-    <line>
-      <![CDATA[Clicking on Refresh button ]]>
     </line>
     <line>
       <![CDATA[clicking on the email to open]]>
@@ -137,19 +134,19 @@
       <![CDATA[Inside Login_HirePP method]]>
     </line>
     <line>
-      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
     </line>
     <line>
       <![CDATA[Entering the EmailID]]>
     </line>
     <line>
-      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
     </line>
     <line>
       <![CDATA[Entering the password]]>
     </line>
     <line>
-      <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //button[text()='Login']] is Present]]>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //button[text()='Login']] is Present]]>
     </line>
     <line>
       <![CDATA[Clicking the Login button]]>
@@ -157,13 +154,16 @@
     <line>
       <![CDATA[InitElements method Created the webelements of login]]>
     </line>
+    <line>
+      <![CDATA[Inside Add Jd test]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="82082" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:26:34Z">
+  <suite name="Suite" duration-ms="85884" started-at="2022-10-06T08:39:23Z" finished-at="2022-10-06T08:40:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="82082" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:26:34Z">
+    <test name="Test_1" duration-ms="85884" started-at="2022-10-06T08:39:23Z" finished-at="2022-10-06T08:40:49Z">
       <class name="com.hirepp.sel.tests.RegistrationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@13e39c73]" name="setUp" is-config="true" duration-ms="6047" started-at="2022-09-30T12:25:12Z" finished-at="2022-09-30T12:25:18Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@6580cfdd]" name="setUp" is-config="true" duration-ms="5994" started-at="2022-10-06T08:39:17Z" finished-at="2022-10-06T08:39:23Z">
           <reporter-output>
             <line>
               <![CDATA[Inside if block of driver==null]]>
@@ -191,7 +191,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@13e39c73]" name="registrationTest" duration-ms="76009" started-at="2022-09-30T12:25:18Z" finished-at="2022-09-30T12:26:34Z">
+        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@6580cfdd]" name="registrationTest" duration-ms="84542" started-at="2022-10-06T08:39:23Z" finished-at="2022-10-06T08:40:48Z">
           <reporter-output>
             <line>
               <![CDATA[Inside the BaseUtils constructor]]>
@@ -239,7 +239,7 @@
               <![CDATA[Inside the getPropertyVal method]]>
             </line>
             <line>
-              <![CDATA[Test Email =tester.hire34]]>
+              <![CDATA[Test Email =tester.hir05]]>
             </line>
             <line>
               <![CDATA[Opening temp email generator page]]>
@@ -257,22 +257,19 @@
               <![CDATA[number of elements in userType4]]>
             </line>
             <line>
-              <![CDATA[printing the hireWindow handle8656a463-7c83-4779-8957-2873ecd10116]]>
+              <![CDATA[printing the hireWindow handle38b30845-c924-4878-88d0-4ef8ade79d8b]]>
             </line>
             <line>
               <![CDATA[Inside the RegistrationActivation ]]>
             </line>
             <line>
-              <![CDATA[Printing the window handle of mailwindow before refreshing8656a463-7c83-4779-8957-2873ecd10116]]>
+              <![CDATA[Printing the window handle of mailwindow before refreshing38b30845-c924-4878-88d0-4ef8ade79d8b]]>
             </line>
             <line>
-              <![CDATA[Hireplusplus window8656a463-7c83-4779-8957-2873ecd10116]]>
+              <![CDATA[Hireplusplus window38b30845-c924-4878-88d0-4ef8ade79d8b]]>
             </line>
             <line>
               <![CDATA[Switching to mailWindow]]>
-            </line>
-            <line>
-              <![CDATA[Clicking on Refresh button ]]>
             </line>
             <line>
               <![CDATA[clicking on the email to open]]>
@@ -305,19 +302,19 @@
               <![CDATA[Inside Login_HirePP method]]>
             </line>
             <line>
-              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
             </line>
             <line>
               <![CDATA[Entering the EmailID]]>
             </line>
             <line>
-              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
             </line>
             <line>
               <![CDATA[Entering the password]]>
             </line>
             <line>
-              <![CDATA[[[ChromeDriver: chrome on WINDOWS (943a6e0358c4512eef4134198debb0f7)] -> xpath: //button[text()='Login']] is Present]]>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (cbe37a21a2dd538878bfbba7edcf9bae)] -> xpath: //button[text()='Login']] is Present]]>
             </line>
             <line>
               <![CDATA[Clicking the Login button]]>
@@ -327,7 +324,46 @@
             </line>
           </reporter-output>
         </test-method> <!-- registrationTest -->
+        <test-method status="FAIL" signature="addJdManualFillFormTest()[pri:2, instance:com.hirepp.sel.tests.RegistrationTests@6580cfdd]" name="addJdManualFillFormTest" duration-ms="1308" started-at="2022-10-06T08:40:48Z" finished-at="2022-10-06T08:40:49Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at com.hirepp.sel.tests.RegistrationTests.addJdManualFillFormTest(RegistrationTests.java:107)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+            <line>
+              <![CDATA[Inside Add Jd test]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- addJdManualFillFormTest -->
       </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test_1 -->
+  </suite> <!-- Suite -->
 </testng-results>
