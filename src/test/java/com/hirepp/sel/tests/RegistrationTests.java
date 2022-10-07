@@ -49,7 +49,7 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 
 	ExcelOperations excelOperations = new ExcelOperations();
 
-	@Test(priority=0)
+	@Test(priority = 0)
 	public void registrationTest() throws InterruptedException, IOException {
 		boolean flag = false;
 		FirstPagePO firstPageObj = new FirstPagePO(driver);
@@ -68,13 +68,8 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 
 //	@Test(priority = 1)
 	public void addJdUploadTest() throws Exception {
-		
-		  Reporter.log("Inside Add Jd test",true); 
-		/* FirstPagePO firstPagePO=new
-		  FirstPagePO(driver); Thread.sleep(5000);
-		  login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
-		  dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);*/
-		 
+
+		Reporter.log("Inside Add Jd test", true);
 		sideBarPO = new SideBarPO(driver);
 		Thread.sleep(5000);
 		jobsPO = sideBarPO.goTOJobsPage();
@@ -89,46 +84,37 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 		chooseAnOptionPO.goToUpload();
 		Thread.sleep(5000);
 
-	}
-	
-	
-	   @Test(priority=2)
-	    public void addJdManualFillFormTest() throws Exception {
-	        Reporter.log("Inside Add Jd test",true);
-	        AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD",1);
-	        /*FirstPagePO firstPagePO=new FirstPagePO(driver);
-	        Thread.sleep(5000);
-	        login_po=firstPagePO.goTOLoginPage();
-	        Thread.sleep(5000);
-	        dashboardPagePO=login_po.Login_HirePP(email,password);
-	        Thread.sleep(5000);
-	        */
-	        sideBarPO=new SideBarPO(driver);
-	        Thread.sleep(5000);
-	        jobsPO=sideBarPO.goTOJobsPage();
-	        Thread.sleep(5000);
-	        basicClientInformationPO=jobsPO.goTOAddJDPage();
-	        Thread.sleep(5000);
-	        Thread.sleep(5000);
-	        generalDetailsPO=basicClientInformationPO.goToGeneralDetailsPage(data);
-	        Thread.sleep(5000);
-	        chooseAnOptionPO=generalDetailsPO.goToChooseOptionPage(data);
-	        Thread.sleep(5000);
-	        requirementsAndPerksPO=chooseAnOptionPO.goToManualFillForm();
-	        Thread.sleep(5000);
-	        data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD",1);
-	        experienceAndSkillsPO =requirementsAndPerksPO.goToExperience(data);
-	        Thread.sleep(5000);
-	        addMoreDetailsPO= experienceAndSkillsPO.goToMoreDetails(data);
-	        Thread.sleep(5000);
-	        reviewJdPO=addMoreDetailsPO.goToReviewJD(data);
-	        Thread.sleep(5000);
-	        jobsPO=reviewJdPO.goToJob();
-
-
-
-
+		// need to retrieve the JobID
 	}
 
+	@Test(priority = 2)
+	public void addJdManualFillFormTest() throws Exception {
+		Reporter.log("Inside Add Jd test", true);
+		AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 1);
+		sideBarPO = new SideBarPO(driver);
+		Thread.sleep(5000);
+		jobsPO = sideBarPO.goTOJobsPage();
+		Thread.sleep(5000);
+		basicClientInformationPO = jobsPO.goTOAddJDPage();
+		Thread.sleep(5000);
+		Thread.sleep(5000);
+		generalDetailsPO = basicClientInformationPO.goToGeneralDetailsPage(data);
+		Thread.sleep(5000);
+		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
+		Thread.sleep(5000);
+		requirementsAndPerksPO = chooseAnOptionPO.goToManualFillForm();
+		Thread.sleep(5000);
+		data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD", 1);
+		experienceAndSkillsPO = requirementsAndPerksPO.goToExperience(data);
+		Thread.sleep(5000);
+		addMoreDetailsPO = experienceAndSkillsPO.goToMoreDetails(data);
+		Thread.sleep(5000);
+		reviewJdPO = addMoreDetailsPO.goToReviewJD(data);
+		Thread.sleep(5000);
+		jobsPO = reviewJdPO.goToJob();
+
+		// need to retrieve jobID after successful creation
+
+	}
 
 }

@@ -52,6 +52,29 @@ public class BaseUtils {
 
 	}
 
+	
+	public void select_valueByVisibleText(WebElement webElement,Object obj)
+	{
+		Select select = new Select(webElement);
+		select.selectByVisibleText((String) obj);
+		
+		}
+
+		
+	public void select_valueByIndex(WebElement webElement,Object obj)
+	{
+		Select select = new Select(webElement);
+		select.selectByIndex((int) obj);
+		
+		}
+	
+	public void select_ByValue(WebElement webElement,Object obj)
+	{
+		Select select = new Select(webElement);
+		select.selectByValue((String) obj);
+		
+		}
+		
 	public List<WebElement> allddElements(WebElement webElement) {
 		Select select = new Select(webElement);
 		return select.getOptions();
@@ -208,7 +231,7 @@ public class BaseUtils {
 	
 	
 	
-	
+//	public void waitForElement
 	
 
 
