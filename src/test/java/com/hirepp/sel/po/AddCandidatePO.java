@@ -25,8 +25,8 @@ public class AddCandidatePO {
 	    @FindBy(xpath="//input[@placeholder='Contact No.']") public WebElement contact_no;
 	    @FindBy(xpath = "//label[text()='Notice Period']/following-sibling::select") public WebElement notice_period;
 	    @FindBy(xpath="//label[text()='Current Company']/following-sibling::input") public WebElement current_Company;	
-	    @FindBy(xpath="//input[@placeholder=Current CTC']") public WebElement current_CTC;
-	    @FindBy(xpath="//input[@placeholder=Expected CTC']") public WebElement expected_CTC;
+	    @FindBy(xpath="//input[@placeholder='Currenct CTC']") public WebElement current_CTC;
+	    @FindBy(xpath="//input[@placeholder='Expected CTC']") public WebElement expected_CTC;
 	    @FindBy(xpath = "//label[text()='Currency Type']/following-sibling::select") public WebElement currency_Type;
 	    @FindBy(xpath="//input[@type='file']") public WebElement file_input;
 	    @FindBy(xpath="//span[@class='ant-select-selection-search']") public WebElement country_dropdown;
@@ -46,11 +46,13 @@ public class AddCandidatePO {
 	        contact_no.sendKeys(String.valueOf(data.contact_no));
 	        notice_period.click();
 	        Thread.sleep(3000);
-	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
+			baseUtils.Select_ddElementByIndex(notice_period,1);
+//	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
 	        baseUtils.enterData(current_Company,data.current_Company);
 	        current_CTC.sendKeys(String.valueOf(data.current_CTC));
 	        expected_CTC.sendKeys(String.valueOf(data.expected_CTC));
-	        baseUtils.select_ByValue(currency_Type,String.valueOf(data.currency));
+			baseUtils.Select_ddElementByIndex(currency_Type,1);
+//	        baseUtils.select_ByValue(currency_Type,String.valueOf(data.currency));
 			file_input.click();
 			getProp.loadConfigFile();
 			String browser = getProp.getPropertyVal("browser");
