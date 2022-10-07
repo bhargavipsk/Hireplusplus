@@ -84,10 +84,10 @@ public class ExcelOperations {
 		data.last_Name = row.getCell(1).toString();
 		Reporter.log("Reading  the EmailID",true);
 		data.email_id = row.getCell(2).toString();
-	//	data.country = row.getCell(4).toString();
-//		Reporter.log("Reading  the contact Number",true);
+		data.country = row.getCell(9).toString();
+		Reporter.log("Reading  the contact Number",true);
 
-	//	data.contact_no = (long)row.getCell(4).toString();
+		data.contact_no = (long)row.getCell(3).getNumericCellValue();
 		Reporter.log("Reading  the notice period",true);
 
 		data.notice_period = row.getCell(4).toString();
