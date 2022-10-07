@@ -50,7 +50,7 @@ public class AddCandidatePO {
 	        notice_period.click();
 	        Thread.sleep(3000);
 //			baseUtils.Select_ddElementByIndex(notice_period,1);
-	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
+//	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
 	        baseUtils.select_valueByVisibleText(notice_period,data.notice_period);
 	        baseUtils.enterData(current_Company,data.current_Company);
 	        currency_Type.click();
