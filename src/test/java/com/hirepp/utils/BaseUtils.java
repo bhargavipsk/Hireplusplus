@@ -53,10 +53,10 @@ public class BaseUtils {
 	}
 
 	
-	public void select_valueByVisibleText(WebElement webElement,Object obj)
+	public void select_valueByVisibleText(WebElement webElement,String obj)
 	{
 		Select select = new Select(webElement);
-		select.selectByVisibleText((String) obj);
+		select.selectByVisibleText(obj);
 		
 		}
 
@@ -172,6 +172,11 @@ public class BaseUtils {
 
 	public void uploadDoc(String exePath) throws IOException {
 		Runtime.getRuntime().exec(exePath);
+	}
+
+	public String[] stringSplitBySpace(String s){
+		String[] split = s.split(" ");
+		return split;
 	}
 
 

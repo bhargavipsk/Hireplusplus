@@ -14,9 +14,10 @@ public class ChooseAnOptionPO {
     BaseUtils baseUtils=new BaseUtils(driver);
     config getProp = new config();
 
-    @FindBy(xpath = "//h1[.='Choose an option to fill J.D']") public WebElement ChooseOptionTitle;
+    @FindBy(xpath = "//h1") public WebElement ChooseOptionTitle;
     @FindBy(xpath = "//div[@class='drop-file-input']") public WebElement UploadDoc;
     @FindBy(xpath = "//h4[.='Manually fill the form']") public WebElement ManualFillForm;
+
 
 
     public JobsPO goToUpload() throws Exception {

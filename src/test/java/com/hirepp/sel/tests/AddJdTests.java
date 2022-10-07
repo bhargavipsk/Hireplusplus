@@ -4,6 +4,7 @@ import com.hirepp.sel.po.*;
 import com.hirepp.utils.AddJD;
 import com.hirepp.utils.ExcelOperations;
 import com.hirepp.utils.TestBaseSetup;
+import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ public class AddJdTests extends TestBaseSetup {
 	 * String email="kongarir@bridgentech.com"; String password="recruiter";
 	 * LoginPagePO login_po;
 	 */
+	String jobId;
 	DashboardPagePO dashboardPagePO;
 	SideBarPO sideBarPO;
 	JobsPO jobsPO;
@@ -27,7 +29,7 @@ public class AddJdTests extends TestBaseSetup {
 	ExcelOperations excelOperations = new ExcelOperations();
 
 	@Test
-	public void addJdUploadTest() throws Exception {
+	public String addJdUploadTest(WebDriver driver) throws Exception {
 		/*
 		 * Reporter.log("Inside Add Jd test",true); FirstPagePO firstPagePO=new
 		 * FirstPagePO(driver); Thread.sleep(5000);
@@ -45,13 +47,15 @@ public class AddJdTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
+		jobId = chooseAnOptionPO.ChooseOptionTitle.getText();
 		chooseAnOptionPO.goToUpload();
 		Thread.sleep(5000);
+		return jobId;
 
 	}
 
 	@Test
-	public void addJdManualFillFormTest() throws Exception {
+	public String addJdManualFillFormTest(WebDriver driver) throws Exception {
 		Reporter.log("Inside Add Jd test", true);
 		AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 1);
 		/*
@@ -68,6 +72,7 @@ public class AddJdTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
+		jobId = chooseAnOptionPO.ChooseOptionTitle.getText();
 		requirementsAndPerksPO = chooseAnOptionPO.goToManualFillForm();
 		Thread.sleep(5000);
 		data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD", 1);
@@ -78,6 +83,7 @@ public class AddJdTests extends TestBaseSetup {
 		reviewJdPO = addMoreDetailsPO.goToReviewJD(data);
 		Thread.sleep(5000);
 		jobsPO = reviewJdPO.goToJob();
+		return jobId;
 
 	}
 }

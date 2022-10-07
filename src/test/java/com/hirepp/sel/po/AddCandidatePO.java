@@ -47,21 +47,20 @@ public class AddCandidatePO {
 	      
 	        contact_no.sendKeys(String.valueOf(data.contact_no));
 	        Reporter.log("Clicking on NoticePeriod dropdown",true);
-//	        notice_period.click();
-//	        Thread.sleep(3000);
-			baseUtils.Select_ddElementByIndex(notice_period,1);
-//	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
-//	        baseUtils.select_valueByVisibleText(notice_period,data.notice_period);
-			baseUtils.Select_ddElementByIndex(notice_period,1);
+	        notice_period.click();
+	        Thread.sleep(3000);
+//			baseUtils.Select_ddElementByIndex(notice_period,1);
+	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
+	        baseUtils.select_valueByVisibleText(notice_period,data.notice_period);
 	        baseUtils.enterData(current_Company,data.current_Company);
-//	        currency_Type.click();
-//	        Thread.sleep(2000);
-//	        baseUtils.select_valueByVisibleText(currency_Type,data.currency);
+	        currency_Type.click();
+	        Thread.sleep(2000);
+	        baseUtils.select_valueByVisibleText(currency_Type,data.currency);
 	        current_CTC.sendKeys(String.valueOf(data.current_CTC));
 	        expected_CTC.sendKeys(String.valueOf(data.expected_CTC));
-			baseUtils.Select_ddElementByIndex(currency_Type,1);
-//	        baseUtils.select_ByValue(currency_Type,String.valueOf(data.currency));
+//			baseUtils.Select_ddElementByIndex(currency_Type,1);
 			file_input.click();
+			Thread.sleep(5000);
 			getProp.loadConfigFile();
 			String browser = getProp.getPropertyVal("browser");
 			if(browser.equalsIgnoreCase("chrome")){

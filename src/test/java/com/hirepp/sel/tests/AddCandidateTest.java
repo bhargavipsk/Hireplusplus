@@ -2,6 +2,7 @@ package com.hirepp.sel.tests;
 
 import java.io.IOException;
 
+import com.hirepp.utils.BaseUtils;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -39,9 +40,11 @@ public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
 	ReviewJdPO reviewJdPO;
 	AddCandidatePO addcandidatepo;
 	ExcelOperations excelOperations = new ExcelOperations();
+	AddJdTests addJdTests=new AddJdTests();
+	BaseUtils baseUtils=new BaseUtils(driver);
 
 	@Test
-	public void addingCandidate() throws IOException, InterruptedException {
+	public void addingCandidate() throws Exception {
 
 		Reporter.log("Inside Add Jd test", true);
 		FirstPagePO firstPagePO = new FirstPagePO(driver);
@@ -50,7 +53,10 @@ public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
 		Thread.sleep(5000);
 		dashboardPagePO = login_po.Login_HirePP(email, password);
 		Thread.sleep(5000);
-		driver.get("https://platform.dev.hireplusplus.com/viewJd/JD_IN1665046302");
+		String job = addJdTests.addJdUploadTest(driver);
+		String[] jobid = baseUtils.stringSplitBySpace(job);
+		Thread.sleep(5000);
+		driver.get("https://platform.dev.hireplusplus.com/viewJd/"+jobid[jobid.length-1]);
 		Reporter.log("Reading the excel", true);
 		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
 		Reporter.log("Creating object of AddCandidatePO",true);
