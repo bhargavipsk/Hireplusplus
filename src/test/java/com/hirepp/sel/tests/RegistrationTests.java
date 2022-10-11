@@ -2,6 +2,7 @@ package com.hirepp.sel.tests;
 
 import java.io.IOException;
 
+import com.hirepp.utils.*;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -18,10 +19,6 @@ import com.hirepp.sel.po.RegistrationPagePO;
 import com.hirepp.sel.po.RequirementsAndPerksPO;
 import com.hirepp.sel.po.ReviewJdPO;
 import com.hirepp.sel.po.SideBarPO;
-import com.hirepp.utils.AddJD;
-import com.hirepp.utils.BaseUtils;
-import com.hirepp.utils.ExcelOperations;
-import com.hirepp.utils.config;
 
 /**
  * This class contains all the TestNG tests on Registrationpage
@@ -29,13 +26,13 @@ import com.hirepp.utils.config;
  * @author Bhargavi created on 16/09/2022
  */
 
-public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
+public class RegistrationTests extends TestBaseSetup {
 
 	LoginPagePO loginPageObj;
 	RegistrationPagePO reg;
 	FirstPagePO firstPageObj;
 //	String expected_text = "already registered";
-	config getProp = new config();
+
 	DashboardPagePO dashboardPagePO;
 	SideBarPO sideBarPO;
 	JobsPO jobsPO;
@@ -48,6 +45,7 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 	ReviewJdPO reviewJdPO;
 
 	ExcelOperations excelOperations = new ExcelOperations();
+	BaseUtils baseUtils=new BaseUtils(driver);
 
 	@Test(priority = 0)
 	public void registrationTest() throws InterruptedException, IOException {
@@ -55,8 +53,8 @@ public class RegistrationTests extends com.hirepp.utils.TestBaseSetup {
 		FirstPagePO firstPageObj = new FirstPagePO(driver);
 		loginPageObj = firstPageObj.goTOLoginPage();
 		reg = loginPageObj.fromLoginPageToRegistrationPage();
-		getProp.loadConfigFile();
-		String password = getProp.getPropertyVal("password");
+
+		String password = baseUtils.readPropValues("password");
 		String tempEmail = reg.createTempEmail1();
 		reg.registrationWithTmpEmail("FN:" + tempEmail, "LN:" + tempEmail, "034300024", tempEmail + "@mail7.io",
 				password, password, "Recruiter");

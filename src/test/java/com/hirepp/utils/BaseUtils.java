@@ -179,6 +179,14 @@ public class BaseUtils {
 		return split;
 	}
 
+	public String readPropValues(String property) throws IOException {
+
+		config getProp = new config();
+		getProp.loadConfigFile();
+		return getProp.getPropertyVal(property);
+
+	}
+
 
 	public String dateEntering(String date,String browser){
 		String[] split = date.split("-");

@@ -16,7 +16,7 @@ public class AddCandidatePO {
 
 	    WebDriver driver;
 	    BaseUtils baseUtils =new BaseUtils(driver);
-		config getProp = new config();
+
 	    
 	    @FindBy(xpath ="//button[text()='+ Add Candidates']") public WebElement addCandidate;	    
 	    @FindBy(xpath="//label[text()='First Name']/following-sibling::input") public WebElement first_Name;
@@ -61,8 +61,7 @@ public class AddCandidatePO {
 //			baseUtils.Select_ddElementByIndex(currency_Type,1);
 			file_input.click();
 			Thread.sleep(5000);
-			getProp.loadConfigFile();
-			String browser = getProp.getPropertyVal("browser");
+			String browser =baseUtils.readPropValues("browser");
 			if(browser.equalsIgnoreCase("chrome")){
 				baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeResumeUpload.exe");
 			}
@@ -85,7 +84,7 @@ public class AddCandidatePO {
 	    	Reporter.log("inside the AddCandidatePO",true);
 	        this.driver = driver;
 	        PageFactory.initElements(driver, this);
-	        Reporter.log("InitElements method Created the webelements in AddCanddiatePO", true);
+	        Reporter.log("InitElements method Created the webelements in AddCandidatePO", true);
 	    }
 	    
 }

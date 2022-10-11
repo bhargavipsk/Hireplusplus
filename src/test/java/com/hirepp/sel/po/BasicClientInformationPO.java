@@ -4,7 +4,6 @@ import com.hirepp.utils.AddJD;
 import com.hirepp.utils.BaseUtils;
 import com.hirepp.utils.config;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
@@ -15,7 +14,7 @@ public class BasicClientInformationPO {
 
 	public WebDriver driver;
 	BaseUtils baseUtils = new BaseUtils(driver);
-	config getProp = new config();
+
 
 	@FindBy(xpath = "//h1[.='Basic Client Information']")
 	public WebElement clientInfoPageTitle;
@@ -47,8 +46,7 @@ public class BasicClientInformationPO {
 		baseUtils.enterData(openings, String.valueOf(data.numberOfOpenings));
 		baseUtils.enterData(jobTitle, data.jdName);
 		String date = baseUtils.getAttributeVal(joiningDate, "min");
-		getProp.loadConfigFile();
-		date = baseUtils.dateEntering(date, getProp.getPropertyVal("browser"));
+		date = baseUtils.dateEntering(date, baseUtils.readPropValues("browser"));
 		baseUtils.enterData(joiningDate, date);
 		clientInfoNext.click();
 		return new GeneralDetailsPO(this.driver);

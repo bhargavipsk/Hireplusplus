@@ -12,7 +12,6 @@ public class ChooseAnOptionPO {
 
     public WebDriver driver;
     BaseUtils baseUtils=new BaseUtils(driver);
-    config getProp = new config();
 
     @FindBy(xpath = "//h1") public WebElement ChooseOptionTitle;
     @FindBy(xpath = "//div[@class='drop-file-input']") public WebElement UploadDoc;
@@ -22,8 +21,7 @@ public class ChooseAnOptionPO {
 
     public JobsPO goToUpload() throws Exception {
         UploadDoc.click();
-        getProp.loadConfigFile();
-        String browser = getProp.getPropertyVal("browser");
+        String browser =baseUtils.readPropValues("browser");
         Thread.sleep(10000);
         if(browser.equalsIgnoreCase("chrome")){
             baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeJdUpload.exe");
