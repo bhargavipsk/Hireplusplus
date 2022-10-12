@@ -40,7 +40,7 @@ public class AddCandidatePO {
 	    	
 	        Reporter.log("Inside the addCandidate()",true);
 	        Thread.sleep(3000);
-	        addCandidate.click();
+//	        addCandidate.click();
 	        baseUtils.enterData(first_Name,data.first_Name);
 	        baseUtils.enterData(last_Name,data.last_Name);
 	        baseUtils.enterData(email,data.email_id);	 

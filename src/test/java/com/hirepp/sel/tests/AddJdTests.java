@@ -29,7 +29,7 @@ public class AddJdTests extends TestBaseSetup {
 	ExcelOperations excelOperations = new ExcelOperations();
 
 	@Test
-	public String addJdUploadTest(WebDriver driver) throws Exception {
+	public JobsPO addJdUploadTest(WebDriver driver) throws Exception {
 		/*
 		 * Reporter.log("Inside Add Jd test",true); FirstPagePO firstPagePO=new
 		 * FirstPagePO(driver); Thread.sleep(5000);
@@ -47,15 +47,14 @@ public class AddJdTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
-		jobId = chooseAnOptionPO.ChooseOptionTitle.getText();
-		chooseAnOptionPO.goToUpload();
+		jobsPO=chooseAnOptionPO.goToUpload();
 		Thread.sleep(5000);
-		return jobId;
+		return jobsPO;
 
 	}
 
 	@Test
-	public String addJdManualFillFormTest(WebDriver driver) throws Exception {
+	public JobsPO addJdManualFillFormTest(WebDriver driver) throws Exception {
 		Reporter.log("Inside Add Jd test", true);
 		AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 1);
 		/*
@@ -63,7 +62,9 @@ public class AddJdTests extends TestBaseSetup {
 		 * login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
 		 * dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);
 		 * sideBarPO=new SideBarPO(driver); Thread.sleep(5000);
-		 */jobsPO = sideBarPO.goTOJobsPage();
+		 */
+		sideBarPO = new SideBarPO(driver);
+		jobsPO = sideBarPO.goTOJobsPage();
 		Thread.sleep(5000);
 		basicClientInformationPO = jobsPO.goTOAddJDPage();
 		Thread.sleep(5000);
@@ -72,7 +73,6 @@ public class AddJdTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
-		jobId = chooseAnOptionPO.ChooseOptionTitle.getText();
 		requirementsAndPerksPO = chooseAnOptionPO.goToManualFillForm();
 		Thread.sleep(5000);
 		data = excelOperations.JdFillForm("./ScriptsDocs/JDdata.xlsx", "JD", 1);
@@ -83,7 +83,7 @@ public class AddJdTests extends TestBaseSetup {
 		reviewJdPO = addMoreDetailsPO.goToReviewJD(data);
 		Thread.sleep(5000);
 		jobsPO = reviewJdPO.goToJob();
-		return jobId;
+		return jobsPO;
 
 	}
 }

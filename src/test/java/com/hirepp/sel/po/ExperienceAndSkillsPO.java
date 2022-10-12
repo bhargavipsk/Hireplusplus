@@ -11,6 +11,7 @@ import org.testng.Reporter;
 public class ExperienceAndSkillsPO {
 
     WebDriver driver;
+    String jobId;
     BaseUtils baseUtils=new BaseUtils(driver);
 
     @FindBy(xpath = "//h1[.='Experience and skills']") public WebElement experienceAndSkillsTitle;
@@ -32,11 +33,12 @@ public class ExperienceAndSkillsPO {
             skillAdd.click();
         }
         experienceAndSkillsNext.click();
-        return new AddMoreDetailsPO(this.driver);
+        return new AddMoreDetailsPO(this.driver,this.jobId);
 
     }
-    public ExperienceAndSkillsPO(WebDriver driver){
+    public ExperienceAndSkillsPO(WebDriver driver, String jobId){
         this.driver = driver;
+        this.jobId=jobId;
         PageFactory.initElements(driver, this);
         Reporter.log("InitElements method Created the webelements", true);
     }

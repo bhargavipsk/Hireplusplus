@@ -11,6 +11,7 @@ import org.testng.Reporter;
 public class AddMoreDetailsPO {
 
     WebDriver driver;
+    String jobId;
     BaseUtils baseUtils =new BaseUtils(driver);
 
     @FindBy(xpath = "//h1[.='Add More Details']") public WebElement addMoreDetailsTitle;
@@ -24,11 +25,12 @@ public class AddMoreDetailsPO {
         baseUtils.enterData(moreDetails,data.moreDetails);
 //        baseUtils.elementClickableWait(addMoreDetailsNext);
         addMoreDetailsNext.click();
-        return new ReviewJdPO(this.driver);
+        return new ReviewJdPO(this.driver,this.jobId);
     }
 
-    public AddMoreDetailsPO(WebDriver driver){
+    public AddMoreDetailsPO(WebDriver driver, String jobId){
         this.driver=driver;
+        this.jobId=jobId;
         PageFactory.initElements(driver, this);
         Reporter.log("InitElements method Created the webelements", true);
     }

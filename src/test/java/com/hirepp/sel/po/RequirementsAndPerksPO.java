@@ -2,7 +2,6 @@ package com.hirepp.sel.po;
 
 import com.hirepp.utils.AddJD;
 import com.hirepp.utils.BaseUtils;
-import com.hirepp.utils.config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +12,7 @@ import java.io.IOException;
 
 public class RequirementsAndPerksPO {
     WebDriver driver;
+    String jobId;
     BaseUtils baseUtils=new BaseUtils(driver);
 
 
@@ -31,11 +31,12 @@ public class RequirementsAndPerksPO {
         baseUtils.enterData(jobDescription,description);
         baseUtils.enterData(Requirements,requirements);
         requirementsAndPerksNext.click();
-        return new ExperienceAndSkillsPO(this.driver);
+        return new ExperienceAndSkillsPO(this.driver,this.jobId);
     }
 
-    public RequirementsAndPerksPO(WebDriver driver){
+    public RequirementsAndPerksPO(WebDriver driver, String jobId){
         this.driver = driver;
+        this.jobId=jobId;
         PageFactory.initElements(driver, this);
         Reporter.log("InitElements method Created the webelements", true);
     }

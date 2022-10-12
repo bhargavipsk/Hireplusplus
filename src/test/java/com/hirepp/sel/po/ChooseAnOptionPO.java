@@ -20,6 +20,9 @@ public class ChooseAnOptionPO {
 
 
     public JobsPO goToUpload() throws Exception {
+        String jobId = ChooseOptionTitle.getText();
+        String[] id = baseUtils.stringSplitBySpace(jobId);
+        jobId=id[id.length-1];
         UploadDoc.click();
         String browser =baseUtils.readPropValues("browser");
         Thread.sleep(10000);
@@ -29,13 +32,16 @@ public class ChooseAnOptionPO {
         if(browser.equalsIgnoreCase("firefox")) {
             baseUtils.uploadDoc(".\\ScriptsDocs\\JdUpload.exe");
         }
-        return new JobsPO(this.driver);
+        return new JobsPO(this.driver,jobId);
     }
 
     public RequirementsAndPerksPO goToManualFillForm(){
+        String jobId = ChooseOptionTitle.getText();
+        String[] id = baseUtils.stringSplitBySpace(jobId);
+        jobId=id[id.length-1];
         Reporter.log("goToManualFillForm method",true);
         ManualFillForm.click();
-        return new RequirementsAndPerksPO(this.driver);
+        return new RequirementsAndPerksPO(this.driver,jobId);
     }
 
 
