@@ -122,12 +122,12 @@ public class ExcelOperations {
 
 	}
 
-	public AddJD getJobId(String excelPath, String sheetName, int jdno) throws IOException {
+	public String getJobId(String excelPath, String sheetName, int jdno) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(jdno);
 		AddJD data = new AddJD();
 		data.jobId=row.getCell(15).toString();
-		return data;
+		return data.jobId;
 	}
 	public void JdIdStoring(String excelPath,String sheetName, int row_no,String jdId) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);

@@ -15,6 +15,7 @@ public class ViewJdPO {
     BaseUtils baseUtils=new BaseUtils(driver);
 
     @FindBy(xpath ="//button[text()='+ Add Candidates']") public WebElement addCandidate;
+    @FindBy(xpath = "//span[text()='Add Candidates']") public WebElement addCandidateMultiple;
     @FindBy(xpath = "//span[.='+ Add Skill']") public WebElement addSkills;
     @FindBy(xpath = "//button[.='+ Add Skills']") public WebElement popupAddSkills;
     @FindBy(xpath = "//button[.='Save']") public WebElement popupSave;
@@ -24,7 +25,12 @@ public class ViewJdPO {
 
 
     public AddCandidatePO goToAddCandidatePO(){
-        addCandidate.click();
+        if(baseUtils.isElementPresent(addCandidate)) {
+            addCandidate.click();
+        }
+        else{
+            addCandidateMultiple.click();
+        }
         return new AddCandidatePO(driver);
     }
 

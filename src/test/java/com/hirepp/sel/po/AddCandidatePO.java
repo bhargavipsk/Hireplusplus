@@ -1,6 +1,7 @@
 package com.hirepp.sel.po;
 
 import com.hirepp.utils.config;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,20 +38,17 @@ public class AddCandidatePO {
 	    
 	    
 	    public ViewJdPO addCandidate(AddCandidate data) throws InterruptedException, IOException {
-	    	
+
 	        Reporter.log("Inside the addCandidate()",true);
 	        Thread.sleep(3000);
-//	        addCandidate.click();
 	        baseUtils.enterData(first_Name,data.first_Name);
 	        baseUtils.enterData(last_Name,data.last_Name);
-	        baseUtils.enterData(email,data.email_id);	 
-	      
+	        baseUtils.enterData(email,data.email_id);
+
 	        contact_no.sendKeys(String.valueOf(data.contact_no));
 	        Reporter.log("Clicking on NoticePeriod dropdown",true);
 	        notice_period.click();
 	        Thread.sleep(3000);
-//			baseUtils.Select_ddElementByIndex(notice_period,1);
-//	        baseUtils.select_ByValue(notice_period,String.valueOf(data.notice_period));
 	        baseUtils.select_valueByVisibleText(notice_period,data.notice_period);
 	        baseUtils.enterData(current_Company,data.current_Company);
 	        currency_Type.click();
@@ -58,7 +56,6 @@ public class AddCandidatePO {
 	        baseUtils.select_valueByVisibleText(currency_Type,data.currency);
 	        current_CTC.sendKeys(String.valueOf(data.current_CTC));
 	        expected_CTC.sendKeys(String.valueOf(data.expected_CTC));
-//			baseUtils.Select_ddElementByIndex(currency_Type,1);
 			file_input.click();
 			Thread.sleep(5000);
 			String browser =baseUtils.readPropValues("browser");
@@ -74,10 +71,63 @@ public class AddCandidatePO {
 			Finish_button.click();
 		return new ViewJdPO(this.driver);
 
-	    
-	    
-
 	    }
+
+
+//	public void addCandidate(AddCandidate data) throws InterruptedException, IOException {
+//		Thread.sleep(3000);
+//		Reporter.log("Inside the addCandidate()", true);
+//		Thread.sleep(3000);
+//
+//		String add_cand1 = "//button[text()='+ Add Candidates']";
+//		boolean flag1 = isElementPresent(By.xpath(add_cand1));
+//		Reporter.log("flag1 value is " + flag1, true);
+//
+//		String add_cand2 = "//span[text()='Add Candidates']";
+//		boolean flag2 = isElementPresent(By.xpath(add_cand2));
+//		Reporter.log("flag2 value is " + flag2, true);
+//		if (flag1) {
+//			Reporter.log("Inside the flag1--code will execute if the job doesn't have any candidates added yet", true);
+//			driver.findElement(By.xpath("//button[text()='+ Add Candidates']")).click();
+//		}
+//
+//		if (flag2) {
+//			Reporter.log("Inside the flag2--code will execute if the job already have candidates added", true);
+//			driver.findElement(By.xpath("//span[text()='Add Candidates']")).click();
+//		}
+//
+//		baseUtils.enterData(first_Name, data.first_Name);
+//		baseUtils.enterData(last_Name, data.last_Name);
+//		baseUtils.enterData(email, data.email_id);
+//		contact_no.sendKeys(String.valueOf(data.contact_no));
+//		Reporter.log("Clicking on NoticePeriod dropdown", true);
+//		notice_period.click();
+//		Thread.sleep(3000);
+//		baseUtils.select_valueByVisibleText(notice_period, data.notice_period);
+//		baseUtils.enterData(current_Company, data.current_Company);
+//		currency_Type.click();
+//		Thread.sleep(2000);
+//		baseUtils.select_valueByVisibleText(currency_Type, data.currency);
+//		current_CTC.sendKeys(String.valueOf(data.current_CTC));
+//		expected_CTC.sendKeys(String.valueOf(data.expected_CTC));
+//		file_input.click();
+//		Thread.sleep(5000);
+//		String browser = baseUtils.readPropValues("browser");
+//		if (browser.equalsIgnoreCase("chrome")) {
+//			Reporter.log("Inside the conditional check for Chrome browser",true);
+//			baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeResumeUpload.exe");
+//		}
+//		if (browser.equalsIgnoreCase("firefox")) {
+//			Reporter.log("Inside the conditional check for Firefox browser",true);
+//			baseUtils.uploadDoc(".\\ScriptsDocs\\FirefoxResumeUpload.exe");
+//		}
+//		Thread.sleep(5000);
+//		Reporter.log("Clicking on Add button",true);
+//		Add_button.click();
+//		Thread.sleep(10000);
+//		Reporter.log("Clicking on Finish Button",true);
+//		Finish_button.click();
+//	}
 	    
 	    
 	    public AddCandidatePO(WebDriver driver){

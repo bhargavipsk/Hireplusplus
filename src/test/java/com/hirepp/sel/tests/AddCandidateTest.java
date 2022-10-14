@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.hirepp.sel.po.*;
 import com.hirepp.utils.BaseUtils;
+import com.hirepp.utils.TestBaseSetup;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 import com.hirepp.utils.AddCandidate;
 import com.hirepp.utils.ExcelOperations;
 
-public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
+public class AddCandidateTest extends TestBaseSetup {
 
 	String email = "kongarir@bridgentech.com";
 	String password = "recruiter";
@@ -33,12 +34,11 @@ public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
 	AddJdTests addJdTests=new AddJdTests();
 	BaseUtils baseUtils=new BaseUtils(driver);
 
-	@Test
+
+//	@Test
 	public ViewJdPO addingCandidate(WebDriver driver) throws Exception {
 
-//		Reporter.log("Inside Add Jd test", true);
 //		FirstPagePO firstPagePO = new FirstPagePO(driver);
-//		Thread.sleep(5000);
 //		login_po = firstPagePO.goTOLoginPage();
 //		Thread.sleep(5000);
 //		dashboardPagePO = login_po.Login_HirePP(email, password);
@@ -49,12 +49,9 @@ public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
 		viewJdPO=jobsPO.goToViewJdPage();
 		Thread.sleep(5000);
 		addcandidatepo=viewJdPO.goToAddCandidatePO();
-//		String[] jobid = baseUtils.stringSplitBySpace(job);
-//		driver.get("https://platform.hireplusplus.com/viewJd/"+jobid[jobid.length-1]);
 		Reporter.log("Reading the excel", true);
 		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
 		Reporter.log("Creating object of AddCandidatePO",true);
-//		addcandidatepo  = new AddCandidatePO(driver);
 		Reporter.log("calling the addCandidate()", true);
 
 		viewJdPO=addcandidatepo.addCandidate(data);
@@ -62,31 +59,29 @@ public class AddCandidateTest extends com.hirepp.utils.TestBaseSetup {
 	}
 
 	@Test
-	public ViewJdPO addingCandidateForJd(WebDriver driver) throws Exception {
+	public void addingCandidateForJd(WebDriver driver) throws Exception {
 
-		Reporter.log("Inside Add Jd test", true);
 		FirstPagePO firstPagePO = new FirstPagePO(driver);
 		Thread.sleep(5000);
 		login_po = firstPagePO.goTOLoginPage();
 		Thread.sleep(5000);
-		dashboardPagePO = login_po.Login_HirePP(email, password);
+		login_po.Login_HirePP(email, password);
+		String jobid = excelOperations.getJobId("./ScriptsDocs/JDdata.xlsx", "Jd", 1);
 		Thread.sleep(5000);
-		jobsPO=addJdTests.addJdUploadTest(driver);
+		sideBarPO = new SideBarPO(driver);
 		Thread.sleep(5000);
-		excelOperations.getJobId()
-		viewJdPO=jobsPO.goToViewJdPage();
+		jobsPO = sideBarPO.goTOJobsPage();
+		Thread.sleep(5000);
+		viewJdPO=jobsPO.goToViewJdPage(jobid);
 		Thread.sleep(5000);
 		addcandidatepo=viewJdPO.goToAddCandidatePO();
-//		String[] jobid = baseUtils.stringSplitBySpace(job);
-//		driver.get("https://platform.hireplusplus.com/viewJd/"+jobid[jobid.length-1]);
 		Reporter.log("Reading the excel", true);
 		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
 		Reporter.log("Creating object of AddCandidatePO",true);
-//		addcandidatepo  = new AddCandidatePO(driver);
 		Reporter.log("calling the addCandidate()", true);
 
 		viewJdPO=addcandidatepo.addCandidate(data);
-		return viewJdPO;
+//		return viewJdPO;
 	}
 
 }
