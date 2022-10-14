@@ -41,8 +41,8 @@ public class AddJdTests extends TestBaseSetup {
 		jobsPO = sideBarPO.goTOJobsPage();
 		Thread.sleep(5000);
 		basicClientInformationPO = jobsPO.goTOAddJDPage();
-		AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 1);
-		Thread.sleep(5000);
+			AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 2);
+			Thread.sleep(5000);
 		generalDetailsPO = basicClientInformationPO.goToGeneralDetailsPage(data);
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);

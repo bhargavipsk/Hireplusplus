@@ -21,6 +21,8 @@ public class AddJD {
     public String requirements;
     public String perks;
     public List<String> skills=new ArrayList<String>();
+    public int[] weightage=new int[20];
     public String skillsAsText;
     public String moreDetails;
+    public String jobId;
 }

@@ -23,6 +23,7 @@ public class ChooseAnOptionPO {
         String jobId = ChooseOptionTitle.getText();
         String[] id = baseUtils.stringSplitBySpace(jobId);
         jobId=id[id.length-1];
+
         UploadDoc.click();
         String browser =baseUtils.readPropValues("browser");
         Thread.sleep(10000);

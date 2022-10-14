@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Reporter;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,8 +23,13 @@ public class ExcelOperations {
 		return workbook.getSheet(sheetName);
 	}
 
-	public AddJD jdInputsExcel(String ExcelPath, String sheetName, int jdno) throws IOException {
-		Sheet sheet = ExcelData(ExcelPath, sheetName);
+	public void WritingExcel(String excelPath,Workbook workbook) throws IOException {
+		FileOutputStream  fileOutputStream=new FileOutputStream(excelPath);
+		workbook.write(fileOutputStream);
+	}
+
+	public AddJD jdInputsExcel(String excelPath, String sheetName, int jdno) throws IOException {
+		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(jdno);
 		AddJD data = new AddJD();
 		data.clientName = row.getCell(1).toString();
@@ -35,7 +41,10 @@ public class ExcelOperations {
 		data.functionalArea = row.getCell(7).toString();
 		data.minSalaryBudget = (long) row.getCell(8).getNumericCellValue();
 		data.maxSalaryBudget = (long) row.getCell(9).getNumericCellValue();
-
+		List<Object> skill_weightage = null;
+		skill_weightage= skillEntry(excelPath, 1);
+		data.skills= (List<String>) skill_weightage.get(0);
+		data.weightage= (int[]) skill_weightage.get(1);
 		return data;
 	}
 
@@ -48,13 +57,13 @@ public class ExcelOperations {
 		data.perks = row.getCell(12).toString();
 		data.skillsAsText = row.getCell(13).toString();
 		data.moreDetails = row.getCell(14).toString();
-		data.skills = skillEntry(excelPath, 1);
 		return data;
 
 	}
 
-	public List<String> skillEntry(String excelPath, int jdno) throws IOException {
+	public List<Object> skillEntry(String excelPath, int jdno) throws IOException {
 		List<String> skill = new ArrayList<String>();
+		int[] weightage=new int[20];
 		Sheet sheet1 = ExcelData(excelPath, "Skills");
 		Row row1 = sheet1.getRow(jdno);
 		int i = 0;
@@ -63,9 +72,14 @@ public class ExcelOperations {
 		while (cell.hasNext()) {
 			cell1 = cell.next();
 			skill.add(cell1.getStringCellValue());
+			cell1 = cell.next();
+			weightage[i]= (int) cell1.getNumericCellValue();
 			i++;
 		}
-		return skill;
+		List<Object> skill_weightage=new ArrayList<>();
+		skill_weightage.add(skill);
+		skill_weightage.add(weightage);
+		return skill_weightage;
 	}
 
 	public AddCandidate candidateExcelRead(String ExcelPath, String sheetName, int row_no) throws IOException {
@@ -106,6 +120,20 @@ public class ExcelOperations {
 		Reporter.log("data value is " +data,true);
 		return data;
 
+	}
+
+	public AddJD getJobId(String excelPath, String sheetName, int jdno) throws IOException {
+		Sheet sheet = ExcelData(excelPath, sheetName);
+		Row row = sheet.getRow(jdno);
+		AddJD data = new AddJD();
+		data.jobId=row.getCell(15).toString();
+		return data;
+	}
+	public void JdIdStoring(String excelPath,String sheetName, int row_no,String jdId) throws IOException {
+		Sheet sheet = ExcelData(excelPath, sheetName);
+		Row row = sheet.getRow(row_no);
+		row.getCell(15).setCellValue(jdId);
+		WritingExcel(excelPath, sheet.getWorkbook());
 	}
 
 }

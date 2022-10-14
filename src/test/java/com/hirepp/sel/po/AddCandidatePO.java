@@ -36,7 +36,7 @@ public class AddCandidatePO {
 	    
 	    
 	    
-	    public void addCandidate(AddCandidate data) throws InterruptedException, IOException {
+	    public ViewJdPO addCandidate(AddCandidate data) throws InterruptedException, IOException {
 	    	
 	        Reporter.log("Inside the addCandidate()",true);
 	        Thread.sleep(3000);
@@ -72,7 +72,7 @@ public class AddCandidatePO {
 			Add_button.click();
 			Thread.sleep(10000);
 			Finish_button.click();
-
+		return new ViewJdPO(this.driver);
 
 	    
 	    
