@@ -43,7 +43,7 @@ public class JobsPO {
     }
 
     public ViewJdPO goToViewJdPage(String JobId) throws IOException {
-        excelOperations.JdIdStoring("./ScriptsDocs/JDdata.xlsx", "JD", 1,this.jobid);
+//        excelOperations.JdIdStoring("./ScriptsDocs/JDdata.xlsx", "JD", 1,this.jobid);
         driver.findElement(By.xpath("//p[.='"+JobId+"']")).click();
         return new ViewJdPO(this.driver);
     }

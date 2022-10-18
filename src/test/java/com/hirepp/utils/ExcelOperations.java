@@ -17,17 +17,49 @@ import java.util.List;
 
 public class ExcelOperations {
 
+	/**
+	 * Returns the worksheet from the Excel document
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the Text which specifies the path of the Excel document
+	 * @param sheetName 	is the test that specifies the title of the sheet in the Excel
+	 * @throws IOException
+	 * @return returns excel data from sheet as Sheet
+	 *
+	 */
 	public Sheet ExcelData(String ExcelPath, String sheetName) throws IOException {
 		FileInputStream fileInputStream = new FileInputStream(ExcelPath);
 		Workbook workbook = new XSSFWorkbook(fileInputStream);
 		return workbook.getSheet(sheetName);
 	}
 
+
+	/**
+	 * Writes the data in Excel
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param workbook		is the workbook that has the data to be stored in Excel
+	 * @throws IOException
+	 * @return no return value
+	 *
+	 */
 	public void WritingExcel(String excelPath,Workbook workbook) throws IOException {
 		FileOutputStream  fileOutputStream=new FileOutputStream(excelPath);
 		workbook.write(fileOutputStream);
 	}
 
+	/**
+	 * Stores the data in respective variables for adding jd and return the object
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param sheetName 	is the text that specifies the title of the sheet in the Excel
+	 * @param jdno			is the number that specifies the row in the worksheet
+	 * @throws IOException
+	 * @return returns object of AddJD with data to create the jd
+	 *
+	 */
 	public AddJD jdInputsExcel(String excelPath, String sheetName, int jdno) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(jdno);
@@ -48,6 +80,17 @@ public class ExcelOperations {
 		return data;
 	}
 
+	/**
+	 * Stores the data in respective variables for adding jd and return the object
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param sheetName 	is the text that specifies the title of the sheet in the Excel
+	 * @param jdno			is the number that specifies the row in the worksheet
+	 * @throws IOException
+	 * @return returns object of AddJD with data to create the jd
+	 *
+	 */
 	public AddJD JdFillForm(String excelPath, String sheetName, int jdno) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(jdno);
@@ -61,6 +104,16 @@ public class ExcelOperations {
 
 	}
 
+	/**
+	 * Stores the data in respective variables for adding skills and weightage of skills and return the object
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param jdno			is the number that specifies the row in the worksheet
+	 * @throws IOException
+	 * @return returns object of AddJD with data to enter skills and weightage
+	 *
+	 */
 	public List<Object> skillEntry(String excelPath, int jdno) throws IOException {
 		List<String> skill = new ArrayList<String>();
 		int[] weightage=new int[20];
@@ -122,6 +175,17 @@ public class ExcelOperations {
 
 	}
 
+	/**
+	 * Gets the JdId for the particular jd stored in Excel
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param sheetName 	is the text that specifies the title of the sheet in the Excel
+	 * @param jdno			is the number that specifies the row in the worksheet
+	 * @throws IOException
+	 * @return returns String of Jdid
+	 *
+	 */
 	public String getJobId(String excelPath, String sheetName, int jdno) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(jdno);
@@ -129,6 +193,19 @@ public class ExcelOperations {
 		data.jobId=row.getCell(15).toString();
 		return data.jobId;
 	}
+
+
+	/**
+	 * Stores the JdId in the Excel for that particular jd
+	 *
+	 * @author rakesh
+	 * @param ExcelPath     is the text which specifies the path of the Excel document
+	 * @param sheetName 	is the text that specifies the title of the sheet in the Excel
+	 * @param jdno			is the number that specifies the row in the worksheet
+	 * @throws IOException
+	 * @return no return value
+	 *
+	 */
 	public void JdIdStoring(String excelPath,String sheetName, int row_no,String jdId) throws IOException {
 		Sheet sheet = ExcelData(excelPath, sheetName);
 		Row row = sheet.getRow(row_no);

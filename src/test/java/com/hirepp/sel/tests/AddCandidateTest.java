@@ -1,11 +1,10 @@
 package com.hirepp.sel.tests;
 
-import java.io.IOException;
-
 import com.hirepp.sel.po.*;
 import com.hirepp.utils.BaseUtils;
 import com.hirepp.utils.TestBaseSetup;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -33,6 +32,7 @@ public class AddCandidateTest extends TestBaseSetup {
 	ExcelOperations excelOperations = new ExcelOperations();
 	AddJdTests addJdTests=new AddJdTests();
 	BaseUtils baseUtils=new BaseUtils(driver);
+	FirstPagePO firstPagePO;
 
 
 //	@Test
@@ -59,7 +59,7 @@ public class AddCandidateTest extends TestBaseSetup {
 	}
 
 	@Test
-	public void addingCandidateForJd(WebDriver driver) throws Exception {
+	public void addingCandidateForJd() throws Exception {
 
 		FirstPagePO firstPagePO = new FirstPagePO(driver);
 		Thread.sleep(5000);
@@ -76,11 +76,11 @@ public class AddCandidateTest extends TestBaseSetup {
 		Thread.sleep(5000);
 		addcandidatepo=viewJdPO.goToAddCandidatePO();
 		Reporter.log("Reading the excel", true);
-		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
-		Reporter.log("Creating object of AddCandidatePO",true);
-		Reporter.log("calling the addCandidate()", true);
+//		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
+//		Reporter.log("Creating object of AddCandidatePO",true);
+//		Reporter.log("calling the addCandidate()", true);
 
-		viewJdPO=addcandidatepo.addCandidate(data);
+//		viewJdPO=addcandidatepo.addCandidate(data);
 //		return viewJdPO;
 	}
 

@@ -6,16 +6,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
+
+import java.util.List;
 
 public class ViewJdPO {
     WebDriver driver;
     BaseUtils baseUtils=new BaseUtils(driver);
 
-    @FindBy(xpath ="//button[text()='+ Add Candidates']") public WebElement addCandidate;
-    @FindBy(xpath = "//span[text()='Add Candidates']") public WebElement addCandidateMultiple;
+    @FindAll({
+            @FindBy(xpath = "//button[text()='+ Add Candidates']"),
+            @FindBy(xpath = "//span[text()='Add Candidates']")
+    }) public List<WebElement> addCandidate;
     @FindBy(xpath = "//span[.='+ Add Skill']") public WebElement addSkills;
     @FindBy(xpath = "//button[.='+ Add Skills']") public WebElement popupAddSkills;
     @FindBy(xpath = "//button[.='Save']") public WebElement popupSave;
@@ -25,12 +30,7 @@ public class ViewJdPO {
 
 
     public AddCandidatePO goToAddCandidatePO(){
-        if(baseUtils.isElementPresent(addCandidate)) {
-            addCandidate.click();
-        }
-        else{
-            addCandidateMultiple.click();
-        }
+        addCandidate.get(0).click();
         return new AddCandidatePO(driver);
     }
 
@@ -42,7 +42,6 @@ public class ViewJdPO {
             popupAddSkills.click();
             driver.findElement(By.id("rc_select_"+i)).sendKeys(data.skills.get(i));
             driver.findElement(By.id("rc_select_"+i)).sendKeys(Keys.ENTER);
-//            driver.findElement(By.xpath("//div[.='"+data.skills.get(i)+"']")).click();
             driver.findElement(By.id("skillPerc_"+i)).sendKeys(String.valueOf(data.weightage[i]));
             Thread.sleep(1000);
 
