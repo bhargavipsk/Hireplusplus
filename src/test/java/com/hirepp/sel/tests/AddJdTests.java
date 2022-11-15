@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 public class AddJdTests extends TestBaseSetup {
 
-	/*
-	 * String email="kongarir@bridgentech.com"; String password="recruiter";
-	 * LoginPagePO login_po;
-	 */
+
+	  String email="kongarir@bridgentech.com"; String password="recruiter";
+	  LoginPagePO login_po;
+
 	String jobId;
 	DashboardPagePO dashboardPagePO;
 	SideBarPO sideBarPO;
@@ -30,12 +30,15 @@ public class AddJdTests extends TestBaseSetup {
 
 	@Test
 	public JobsPO addJdUploadTest(WebDriver driver) throws Exception {
-		/*
-		 * Reporter.log("Inside Add Jd test",true); FirstPagePO firstPagePO=new
-		 * FirstPagePO(driver); Thread.sleep(5000);
-		 * login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
-		 * dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);
-		 */
+
+//		 Reporter.log("Inside Add Jd test",true);
+//		 FirstPagePO firstPagePO=new FirstPagePO(driver);
+//		 Thread.sleep(5000);
+//		 login_po=firstPagePO.goTOLoginPage();
+//		 Thread.sleep(5000);
+//		 dashboardPagePO=login_po.Login_HirePP(email,password);
+//		 Thread.sleep(5000);
+
 		sideBarPO = new SideBarPO(driver);
 		Thread.sleep(5000);
 		jobsPO = sideBarPO.goTOJobsPage();
@@ -47,7 +50,7 @@ public class AddJdTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
-		jobsPO=chooseAnOptionPO.goToUpload();
+		jobsPO=chooseAnOptionPO.goToUpload(data.exePath);
 		Thread.sleep(5000);
 		return jobsPO;
 
@@ -57,12 +60,12 @@ public class AddJdTests extends TestBaseSetup {
 	public JobsPO addJdManualFillFormTest(WebDriver driver) throws Exception {
 		Reporter.log("Inside Add Jd test", true);
 		AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 1);
-		/*
-		 * FirstPagePO firstPagePO=new FirstPagePO(driver); Thread.sleep(5000);
-		 * login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
-		 * dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);
-		 * sideBarPO=new SideBarPO(driver); Thread.sleep(5000);
-		 */
+
+//		  FirstPagePO firstPagePO=new FirstPagePO(driver); Thread.sleep(5000);
+//		  login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
+//		  dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);
+//		  sideBarPO=new SideBarPO(driver); Thread.sleep(5000);
+
 		sideBarPO = new SideBarPO(driver);
 		jobsPO = sideBarPO.goTOJobsPage();
 		Thread.sleep(5000);
@@ -86,4 +89,27 @@ public class AddJdTests extends TestBaseSetup {
 		return jobsPO;
 
 	}
+
+@Test
+	public void addJD() throws Exception{
+	Reporter.log("Inside Add Jd test",true); FirstPagePO firstPagePO=new
+			FirstPagePO(driver); Thread.sleep(5000);
+	login_po=firstPagePO.goTOLoginPage(); Thread.sleep(5000);
+	dashboardPagePO=login_po.Login_HirePP(email,password); Thread.sleep(5000);
+
+	sideBarPO = new SideBarPO(driver);
+	Thread.sleep(5000);
+	jobsPO = sideBarPO.goTOJobsPage();
+	Thread.sleep(5000);
+	basicClientInformationPO = jobsPO.goTOAddJDPage();
+	AddJD data = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata.xlsx", "JD", 2);
+	Thread.sleep(5000);
+	generalDetailsPO = basicClientInformationPO.goToGeneralDetailsPage(data);
+	Thread.sleep(5000);
+	chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
+	Thread.sleep(5000);
+	jobsPO=chooseAnOptionPO.goToUpload(data.exePath);
+	Thread.sleep(5000);
+
+}
 }

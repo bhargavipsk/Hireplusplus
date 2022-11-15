@@ -1,5 +1,6 @@
 package com.hirepp.sel.po;
 
+import com.hirepp.utils.ExcelOperations;
 import com.hirepp.utils.config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,10 +35,11 @@ public class AddCandidatePO {
 	    @FindBy(xpath="//span[@class='ant-select-selection-search']") public WebElement country_dropdown;
 		@FindBy(xpath = "//button[.='Add']") public WebElement Add_button;
 		@FindBy(xpath = "//button[.='Finish']") public WebElement Finish_button;
+		@FindBy(xpath = "//div[@class='candidateListCard card']//p") public WebElement candId;
 	    
 	    
 	    
-	    public ViewJdPO addCandidate(AddCandidate data) throws InterruptedException, IOException {
+	    public String addCandidate(AddCandidate data) throws InterruptedException, IOException {
 
 	        Reporter.log("Inside the addCandidate()",true);
 	        Thread.sleep(3000);
@@ -58,20 +60,18 @@ public class AddCandidatePO {
 	        expected_CTC.sendKeys(String.valueOf(data.expected_CTC));
 			file_input.click();
 			Thread.sleep(5000);
-			String browser =baseUtils.readPropValues("browser");
-			if(browser.equalsIgnoreCase("chrome")){
-				baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeResumeUpload.exe");
-			}
-			if(browser.equalsIgnoreCase("firefox")) {
-				baseUtils.uploadDoc(".\\ScriptsDocs\\FirefoxResumeUpload.exe");
-			}
+			baseUtils.uploadDoc(data.exePath);
 			Thread.sleep(5000);
 			Add_button.click();
 			Thread.sleep(10000);
-			Finish_button.click();
-		return new ViewJdPO(this.driver);
+			return candId.getText();
 
 	    }
+
+		public ViewJdPO goToViewjd(){
+			Finish_button.click();
+			return new ViewJdPO(this.driver);
+		}
 
 
 //	public void addCandidate(AddCandidate data) throws InterruptedException, IOException {

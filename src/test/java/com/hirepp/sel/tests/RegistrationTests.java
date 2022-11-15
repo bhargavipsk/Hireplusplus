@@ -79,7 +79,7 @@ public class RegistrationTests extends TestBaseSetup {
 		Thread.sleep(5000);
 		chooseAnOptionPO = generalDetailsPO.goToChooseOptionPage(data);
 		Thread.sleep(5000);
-		chooseAnOptionPO.goToUpload();
+		chooseAnOptionPO.goToUpload(data.exePath);
 		Thread.sleep(5000);
 
 		// need to retrieve the JobID

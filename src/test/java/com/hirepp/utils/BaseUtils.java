@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,6 +36,9 @@ public class BaseUtils {
 		this.driver = driver;
 	}
 
+	public BaseUtils(){
+
+	}
 	public void enterDataSendkeys(WebElement webElement, String data) {
 		webElement.click();
 		webElement.sendKeys(data);
@@ -43,6 +47,11 @@ public class BaseUtils {
 	public void Select_ddElementByIndex(WebElement webElement,int i){
 		Select select = new Select(webElement);
 		select.selectByIndex(i);
+	}
+
+	public void OpeningNewTab(WebDriver driver){
+		JavascriptExecutor js= (JavascriptExecutor) driver;
+		js.executeScript("window.open()");
 	}
 
 	public String Selected_ddElement(WebElement webElement) {

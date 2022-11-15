@@ -44,8 +44,8 @@ public class AddCandidateTest extends TestBaseSetup {
 //		dashboardPagePO = login_po.Login_HirePP(email, password);
 //		Thread.sleep(5000);
 		jobsPO=addJdTests.addJdUploadTest(driver);
-
 		Thread.sleep(5000);
+		String jdid = jobsPO.getJobid();
 		viewJdPO=jobsPO.goToViewJdPage();
 		Thread.sleep(5000);
 		addcandidatepo=viewJdPO.goToAddCandidatePO();
@@ -53,34 +53,35 @@ public class AddCandidateTest extends TestBaseSetup {
 		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
 		Reporter.log("Creating object of AddCandidatePO",true);
 		Reporter.log("calling the addCandidate()", true);
-
-		viewJdPO=addcandidatepo.addCandidate(data);
+		String candid = addcandidatepo.addCandidate(data);
+		excelOperations.canIdStore("./ScriptsDocs/JDdata.xlsx",candid,1);
+		viewJdPO=addcandidatepo.goToViewjd();
 		return viewJdPO;
 	}
 
 	@Test
 	public void addingCandidateForJd() throws Exception {
-
+		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
+		data.jdid = excelOperations.getJobId("./ScriptsDocs/JDdata.xlsx", "ids", 1);
 		FirstPagePO firstPagePO = new FirstPagePO(driver);
 		Thread.sleep(5000);
 		login_po = firstPagePO.goTOLoginPage();
 		Thread.sleep(5000);
 		login_po.Login_HirePP(email, password);
-		String jobid = excelOperations.getJobId("./ScriptsDocs/JDdata.xlsx", "Jd", 1);
 		Thread.sleep(5000);
 		sideBarPO = new SideBarPO(driver);
 		Thread.sleep(5000);
 		jobsPO = sideBarPO.goTOJobsPage();
 		Thread.sleep(5000);
-		viewJdPO=jobsPO.goToViewJdPage(jobid);
+		viewJdPO=jobsPO.goToViewJdPage(data.jdid);
 		Thread.sleep(5000);
 		addcandidatepo=viewJdPO.goToAddCandidatePO();
 		Reporter.log("Reading the excel", true);
-//		AddCandidate data = excelOperations.candidateExcelRead("./ScriptsDocs/JDdata.xlsx", "Candidate", 1);
-//		Reporter.log("Creating object of AddCandidatePO",true);
-//		Reporter.log("calling the addCandidate()", true);
-
-//		viewJdPO=addcandidatepo.addCandidate(data);
+		Reporter.log("Creating object of AddCandidatePO",true);
+		Reporter.log("calling the addCandidate()", true);
+		String candid=addcandidatepo.addCandidate(data);
+		excelOperations.canIdStore("./ScriptsDocs/JDdata.xlsx",candid,1 );
+		viewJdPO=addcandidatepo.goToViewjd();
 //		return viewJdPO;
 	}
 

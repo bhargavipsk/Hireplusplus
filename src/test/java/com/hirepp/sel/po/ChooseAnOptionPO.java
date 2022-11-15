@@ -19,20 +19,12 @@ public class ChooseAnOptionPO {
 
 
 
-    public JobsPO goToUpload() throws Exception {
+    public JobsPO goToUpload(String exePath) throws Exception {
         String jobId = ChooseOptionTitle.getText();
         String[] id = baseUtils.stringSplitBySpace(jobId);
         jobId=id[id.length-1];
-
         UploadDoc.click();
-        String browser =baseUtils.readPropValues("browser");
-        Thread.sleep(10000);
-        if(browser.equalsIgnoreCase("chrome")){
-            baseUtils.uploadDoc(".\\ScriptsDocs\\ChromeJdUpload.exe");
-        }
-        if(browser.equalsIgnoreCase("firefox")) {
-            baseUtils.uploadDoc(".\\ScriptsDocs\\JdUpload.exe");
-        }
+        baseUtils.uploadDoc(exePath);
         return new JobsPO(this.driver,jobId);
     }
 

@@ -1,5 +1,7 @@
 package com.hirepp.sel.po;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,6 +31,10 @@ public class FirstPagePO{
 	public LoginPagePO goTOLoginPage() throws InterruptedException {
 		Reporter.log("inside the goTOLogin method",true);
 		Thread.sleep(3000);
+//		Point loginpoint = login_bt.getLocation();
+//		JavascriptExecutor js = (JavascriptExecutor) driver;
+//		js.executeScript("window.scrollBy("+loginpoint+")");
+
 		login_bt.click();
 		Reporter.log("Clicked on Login in the firstpage",true);
 		return new LoginPagePO(this.driver);
