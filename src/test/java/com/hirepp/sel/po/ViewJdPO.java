@@ -30,7 +30,7 @@ public class ViewJdPO {
     @FindBy(xpath = "//button[.='Save']") public WebElement popupSave;
     @FindAll({@FindBy(xpath = "//ul/li")}) public List<WebElement> pages;
     @FindBys(@FindBy( xpath = "//span[@style='font-size: 11px;']")) public  List<WebElement> allCand;
-    @FindBy(xpath = "//div[.='Candidate Details']//following-sibling::div[.='Joning Link']//input") public WebElement CandidateInterviewLink;
+    @FindBy(xpath = "//div[.='Candidate Details']//following-sibling::div[.='Joining Link']//input") public WebElement CandidateInterviewLink;
     @FindBy(xpath = "//div[.='Panelist Details']//following-sibling::div[.='Joining Link']//input") public WebElement PanelistInterviewLink;
     @FindBy(xpath = "//label[.='Upload .zip file']") public WebElement uploadZip;
     @FindBy(xpath = "//button[.='Next']") public WebElement bulkNext;

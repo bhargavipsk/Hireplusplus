@@ -12,22 +12,48 @@ import java.util.List;
 public class InterviewPO {
     WebDriver driver;
 
-    @FindBy(xpath = "//button[.=' Join ']") public WebElement candJoin;
-    @FindBy(xpath = "//button[.=' End Interview ']") public WebElement RecruiterEnd;
+    @FindBy(xpath = "//button[.=' Join ']") public WebElement Join;
+    @FindBy(xpath = "//button[.=' End Interview ']") public WebElement End;
     @FindBys(@FindBy(xpath = "//div[@class='col-sm']")) public List<WebElement> Stars;
     @FindBy(xpath = "//button[.='Next Skill']") public WebElement next;
     @FindBy(xpath = "//button[.='SUBMIT']") public WebElement submit;
 
 
-    public ReportPO RecruiterEndInterview(){
 
-        return new ReportPO(this.driver);
+
+    public void CandidateJoining(){
+        Join.click();
     }
 
-    public void CandidateEndInterview(){
-        candJoin.click();
+    public void RecruiterJoining(){
+        Join.click();
     }
 
+    public void PanelistJoining(){
+        Join.click();
+    }
+
+    public void candidateEnd() throws InterruptedException {
+        End.click();
+        Thread.sleep(5000);
+        driver.switchTo().alert().accept();
+    }
+
+    public void RecruiterEnd() throws InterruptedException {
+        End.click();
+        Thread.sleep(2000);
+        submit.click();
+        Thread.sleep(5000);
+        driver.switchTo().alert().accept();
+    }
+
+    public void PanelistEnd() throws InterruptedException {
+        End.click();
+        Thread.sleep(2000);
+        submit.click();
+        Thread.sleep(5000);
+        driver.switchTo().alert().accept();
+    }
     public InterviewPO(WebDriver driver){
         Reporter.log("inside the Interview page",true);
         this.driver =driver;
