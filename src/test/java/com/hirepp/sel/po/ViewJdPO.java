@@ -51,7 +51,7 @@ public class ViewJdPO {
         return new AddCandidatePO(driver);
     }
 
-    public ViewJdPO addBulkCandidate() throws Exception{
+       public ViewJdPO addBulkCandidate() throws Exception{
         if(allCand.size()>0){
             addCandidate.get(0).click();
             addCandidate.get(2).click();
