@@ -11,7 +11,7 @@
       <![CDATA[Inside the getPropertyVal method]]>
     </line>
     <line>
-      <![CDATA[Brower is maximized]]>
+      <![CDATA[Browser is maximized]]>
     </line>
     <line>
       <![CDATA[Entering the URL]]>
@@ -26,10 +26,7 @@
       <![CDATA[InitElements method Created the webelements of login]]>
     </line>
     <line>
-      <![CDATA[Inside the BaseUtils constructor]]>
-    </line>
-    <line>
-      <![CDATA[Inside registration test]]>
+      <![CDATA[Inside Add Jd test]]>
     </line>
     <line>
       <![CDATA[Inside the BaseUtils constructor]]>
@@ -56,45 +53,102 @@
       <![CDATA[InitElements method Created the webelements of login]]>
     </line>
     <line>
-      <![CDATA[Inside fromLoginPageToRegistrationPage]]>
+      <![CDATA[Inside Login_HirePP method]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Entering the EmailID]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Entering the password]]>
+    </line>
+    <line>
+      <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //button[text()='Login']] is Present]]>
+    </line>
+    <line>
+      <![CDATA[Clicking the Login button]]>
+    </line>
+    <line>
+      <![CDATA[InitElements method Created the webelements of login]]>
+    </line>
+    <line>
+      <![CDATA[Reading the excel]]>
+    </line>
+    <line>
+      <![CDATA[Inside the ExcelOperations Class-candidateExcelRead()]]>
+    </line>
+    <line>
+      <![CDATA[Reading the sheet]]>
+    </line>
+    <line>
+      <![CDATA[Getting the rowdata]]>
+    </line>
+    <line>
+      <![CDATA[Creating object of AddCandidate]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the firstname]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the lastname]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the EmailID]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the contact Number]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the notice period]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the currency ]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the company ]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the currentCTC ]]>
+    </line>
+    <line>
+      <![CDATA[Reading  the Expected CTC ]]>
+    </line>
+    <line>
+      <![CDATA[data value is com.hirepp.utils.AddCandidate@228cea97]]>
+    </line>
+    <line>
+      <![CDATA[Creating object of AddCandidatePO]]>
     </line>
     <line>
       <![CDATA[Inside the BaseUtils constructor]]>
     </line>
     <line>
-      <![CDATA[InitElements method Created the webelements]]>
+      <![CDATA[inside the AddCandidatePO]]>
     </line>
     <line>
-      <![CDATA[generating temp pwd]]>
+      <![CDATA[InitElements method Created the webelements in AddCanddiatePO]]>
     </line>
     <line>
-      <![CDATA[Brower is maximized]]>
+      <![CDATA[calling the addCandidate()]]>
     </line>
     <line>
-      <![CDATA[Entering the URL]]>
+      <![CDATA[Inside the addCandidate()]]>
     </line>
     <line>
-      <![CDATA[Opening temp email generator page]]>
-    </line>
-    <line>
-      <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
-    </line>
-    <line>
-      <![CDATA[Clicked on dropdown]]>
-    </line>
-    <line>
-      <![CDATA[number of elements in userType4]]>
-    </line>
-    <line>
-      <![CDATA[Registraton failed , register with another emailid]]>
+      <![CDATA[Clicking on NoticePeriod dropdown]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="30628" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:31Z">
+  <suite name="Default suite" duration-ms="32323" started-at="2022-10-07T07:00:07Z" finished-at="2022-10-07T07:00:40Z">
     <groups>
     </groups>
-    <test name="Test_1" duration-ms="30628" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:31Z">
-      <class name="com.hirepp.sel.tests.RegistrationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="setUp" is-config="true" duration-ms="5649" started-at="2022-09-21T09:22:00Z" finished-at="2022-09-21T09:22:06Z">
+    <test name="Default test" duration-ms="32323" started-at="2022-10-07T07:00:07Z" finished-at="2022-10-07T07:00:40Z">
+      <class name="com.hirepp.sel.tests.AddCandidateTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hirepp.sel.tests.AddCandidateTest@6580cfdd]" name="setUp" is-config="true" duration-ms="5218" started-at="2022-10-07T07:00:02Z" finished-at="2022-10-07T07:00:07Z">
           <reporter-output>
             <line>
               <![CDATA[Inside if block of driver==null]]>
@@ -106,7 +160,7 @@
               <![CDATA[Inside the getPropertyVal method]]>
             </line>
             <line>
-              <![CDATA[Brower is maximized]]>
+              <![CDATA[Browser is maximized]]>
             </line>
             <line>
               <![CDATA[Entering the URL]]>
@@ -122,13 +176,10 @@
             </line>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="registrationTest()[pri:0, instance:com.hirepp.sel.tests.RegistrationTests@3e92efc3]" name="registrationTest" duration-ms="24949" started-at="2022-09-21T09:22:06Z" finished-at="2022-09-21T09:22:31Z">
+        <test-method status="PASS" signature="addingCandidate()[pri:0, instance:com.hirepp.sel.tests.AddCandidateTest@6580cfdd]" name="addingCandidate" duration-ms="32295" started-at="2022-10-07T07:00:07Z" finished-at="2022-10-07T07:00:40Z">
           <reporter-output>
             <line>
-              <![CDATA[Inside the BaseUtils constructor]]>
-            </line>
-            <line>
-              <![CDATA[Inside registration test]]>
+              <![CDATA[Inside Add Jd test]]>
             </line>
             <line>
               <![CDATA[Inside the BaseUtils constructor]]>
@@ -155,41 +206,98 @@
               <![CDATA[InitElements method Created the webelements of login]]>
             </line>
             <line>
-              <![CDATA[Inside fromLoginPageToRegistrationPage]]>
+              <![CDATA[Inside Login_HirePP method]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //input[@placeholder='Enter email Id']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Entering the EmailID]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //input[@placeholder='Enter your password']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Entering the password]]>
+            </line>
+            <line>
+              <![CDATA[[[ChromeDriver: chrome on WINDOWS (f18c4b0fe44667ae180cb74b9aa3133e)] -> xpath: //button[text()='Login']] is Present]]>
+            </line>
+            <line>
+              <![CDATA[Clicking the Login button]]>
+            </line>
+            <line>
+              <![CDATA[InitElements method Created the webelements of login]]>
+            </line>
+            <line>
+              <![CDATA[Reading the excel]]>
+            </line>
+            <line>
+              <![CDATA[Inside the ExcelOperations Class-candidateExcelRead()]]>
+            </line>
+            <line>
+              <![CDATA[Reading the sheet]]>
+            </line>
+            <line>
+              <![CDATA[Getting the rowdata]]>
+            </line>
+            <line>
+              <![CDATA[Creating object of AddCandidate]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the firstname]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the lastname]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the EmailID]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the contact Number]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the notice period]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the currency ]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the company ]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the currentCTC ]]>
+            </line>
+            <line>
+              <![CDATA[Reading  the Expected CTC ]]>
+            </line>
+            <line>
+              <![CDATA[data value is com.hirepp.utils.AddCandidate@228cea97]]>
+            </line>
+            <line>
+              <![CDATA[Creating object of AddCandidatePO]]>
             </line>
             <line>
               <![CDATA[Inside the BaseUtils constructor]]>
             </line>
             <line>
-              <![CDATA[InitElements method Created the webelements]]>
+              <![CDATA[inside the AddCandidatePO]]>
             </line>
             <line>
-              <![CDATA[generating temp pwd]]>
+              <![CDATA[InitElements method Created the webelements in AddCanddiatePO]]>
             </line>
             <line>
-              <![CDATA[Brower is maximized]]>
+              <![CDATA[calling the addCandidate()]]>
             </line>
             <line>
-              <![CDATA[Entering the URL]]>
+              <![CDATA[Inside the addCandidate()]]>
             </line>
             <line>
-              <![CDATA[Opening temp email generator page]]>
-            </line>
-            <line>
-              <![CDATA[Inside the getusertypes method,clicking on dropdown]]>
-            </line>
-            <line>
-              <![CDATA[Clicked on dropdown]]>
-            </line>
-            <line>
-              <![CDATA[number of elements in userType4]]>
-            </line>
-            <line>
-              <![CDATA[Registraton failed , register with another emailid]]>
+              <![CDATA[Clicking on NoticePeriod dropdown]]>
             </line>
           </reporter-output>
-        </test-method> <!-- registrationTest -->
-      </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
-    </test> <!-- Test_1 -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- addingCandidate -->
+      </class> <!-- com.hirepp.sel.tests.AddCandidateTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

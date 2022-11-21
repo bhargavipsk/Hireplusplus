@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test_1(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.hirepp.sel.tests.RegistrationTests">
+      <class name="com.hirepp.sel.tests.AddCandidateTest">
         <methods>
-          <include name="registrationTest"/>
+          <include name="addingCandidate"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.hirepp.sel.tests.RegistrationTests -->
+      </class> <!-- com.hirepp.sel.tests.AddCandidateTest -->
     </classes>
-  </test> <!-- Test_1(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

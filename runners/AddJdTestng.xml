@@ -4,7 +4,7 @@
     <test thread-count="5" name="Test_1">
         <classes>
             <!--     <class name="com.hirepp.sel.tests.LoginTests"/>     -->
-            <class name="com.hirepp.sel.tests.AddJdTests"/>
-        </classes>
+            <class name="com.hirepp.sel.tests.AddJdTests"></classes>
+
     </test> <!-- Test_1 -->
 </suite> <!-- Suite -->

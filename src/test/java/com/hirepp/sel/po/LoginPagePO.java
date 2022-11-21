@@ -50,6 +50,7 @@ public class LoginPagePO {
 	}
 
 	public DashboardPagePO Login_HirePP(String email_Id, String pwd) throws InterruptedException {
+		bu.elementVisibleWait(driver,Login_btn);
 		Reporter.log("Inside Login_HirePP method", true);
 		Thread.sleep(2000);
 		if (bu.isElementPresent(emailId)) {

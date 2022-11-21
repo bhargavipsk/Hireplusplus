@@ -2,6 +2,7 @@ package com.hirepp.sel.po;
 
 import com.hirepp.utils.AddJD;
 import com.hirepp.utils.BaseUtils;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,15 +23,21 @@ public class GeneralDetailsPO {
     @FindBy(xpath = "//input[@placeholder='Max Salary']") public WebElement maxSalary;
     @FindBy(xpath = "//button[.='Next']") public WebElement generalDetailsNext;
 
-    public ChooseAnOption goToChooseOptionPage(AddJD data){
+    public ChooseAnOptionPO goToChooseOptionPage(AddJD data) throws InterruptedException {
+        Reporter.log("Inside the goToChooseOptionPage",true);
+        cm.elementVisibleWait(driver,employmentType);
         cm.Select_ddElementByIndex(employmentType,1);
         domain.sendKeys(data.preferredDomain);
         functionalArea.sendKeys(data.functionalArea);
         cm.Select_ddElementByIndex(currency,1);
-        minSalary.sendKeys(data.minSalaryBudget);
-        maxSalary.sendKeys(data.maxSalaryBudget);
+      //  minSalary.sendKeys(Keys.NUMPAD1);
+       // maxSalary.sendKeys(Keys.NUMPAD2);
+        minSalary.sendKeys(String.valueOf(data.minSalaryBudget));
+        maxSalary.sendKeys(String.valueOf(data.maxSalaryBudget));
+   
+        Thread.sleep(5000);
         generalDetailsNext.click();
-        return new ChooseAnOption(this.driver);
+        return new ChooseAnOptionPO(this.driver);
     }
 
     public GeneralDetailsPO(WebDriver driver){

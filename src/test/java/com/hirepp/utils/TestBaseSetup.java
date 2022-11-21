@@ -1,16 +1,19 @@
 package com.hirepp.utils;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
-import com.hirepp.sel.po.FirstPagePO;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -33,8 +36,8 @@ public class TestBaseSetup {
 	 * 
 	 * 
 	 */
-	@BeforeMethod
-	public FirstPagePO setUp() throws IOException {
+	@BeforeSuite
+	public void setUp() throws IOException {
 		System.out.println("driver = " + driver);
 		if (driver == null) {
 			Reporter.log("Inside if block of driver==null", true);
@@ -64,22 +67,21 @@ public class TestBaseSetup {
 		else if (getProp.getPropertyVal("browser").equalsIgnoreCase("edgedriver")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-//			 openBrowser();
-
 			driver.manage().window().maximize();
 			Reporter.log("Brower is maximized", true);
 			Reporter.log("Entering the URL", true);
 			driver.get(getProp.getPropertyVal("testurl"));
 		}
-		return new FirstPagePO(this.driver);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//		return new FirstPagePO(this.driver);
 	}
 
-	/*@AfterMethod
+//	@AfterMethod
 	public void tearDown() throws InterruptedException {
 		Reporter.log("Inside the teardown", true);
 		driver.close();
 		Reporter.log("Teardown is successful", true);
-	}*/
+	}
 
 	/*
 	 * public WebDriver openBrowser() { driver.manage().window().maximize();
