@@ -21,9 +21,8 @@ public class AddMoreDetailsPO {
 
     public ReviewJdPO goToReviewJD(AddJD data){
         Reporter.log("inside goToReviewJD method",true);
-//        baseUtils.elementClickableWait(moreDetails);
+        baseUtils.elementVisibleWait(driver,moreDetails);
         baseUtils.enterData(moreDetails,data.moreDetails);
-//        baseUtils.elementClickableWait(addMoreDetailsNext);
         addMoreDetailsNext.click();
         return new ReviewJdPO(this.driver,this.jobId);
     }

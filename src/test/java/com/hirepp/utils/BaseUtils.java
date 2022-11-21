@@ -8,7 +8,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -19,11 +21,11 @@ import org.testng.Reporter;
  * @author Bhargavi created on 16/09/2022
  */
 
-public class BaseUtils {
+public class BaseUtils extends TestBaseSetup{
 
 	public WebDriver driver;
 	config gp = new config();
-//	WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+
 
 	public BaseUtils(WebDriver driver) {
 		Reporter.log("Inside the BaseUtils constructor", true);
@@ -32,10 +34,6 @@ public class BaseUtils {
 
 	public BaseUtils(){
 
-	}
-	public void enterDataSendkeys(WebElement webElement, String data) {
-		webElement.click();
-		webElement.sendKeys(data);
 	}
 
 	public void Select_ddElementByIndex(WebElement webElement,int i){
@@ -83,9 +81,7 @@ public class BaseUtils {
 		return select.getOptions();
 	}
 
-	public void wait(int w) throws InterruptedException {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(w));
-	}
+
 
 	/**
 	 * 
@@ -109,9 +105,10 @@ public class BaseUtils {
 
 	}
 
-//	public void elementVisibleWait(WebElement element){
-//		wait.until(ExpectedConditions.visibilityOf(element));
-//	}
+	public void elementVisibleWait(WebDriver driver,WebElement element){
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
 
 //	public void elementClickableWait(WebElement element){
 //		wait.until(ExpectedConditions.elementToBeClickable(element));

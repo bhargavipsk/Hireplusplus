@@ -25,6 +25,7 @@ public class GeneralDetailsPO {
 
     public ChooseAnOptionPO goToChooseOptionPage(AddJD data) throws InterruptedException {
         Reporter.log("Inside the goToChooseOptionPage",true);
+        cm.elementVisibleWait(driver,employmentType);
         cm.Select_ddElementByIndex(employmentType,1);
         domain.sendKeys(data.preferredDomain);
         functionalArea.sendKeys(data.functionalArea);

@@ -37,7 +37,7 @@ public class BasicClientInformationPO {
 
 	public GeneralDetailsPO goToGeneralDetailsPage(AddJD data) throws InterruptedException, IOException {
 		Reporter.log("inside the goTOGeneralDetails method", true);
-		Thread.sleep(3000);
+		baseUtils.elementVisibleWait(driver,clientName);
 		baseUtils.enterData(clientName, data.clientName);
 		baseUtils.enterData(hiringManager, data.HiringManager);
 		baseUtils.Select_ddElementByIndex(locationType, 1);

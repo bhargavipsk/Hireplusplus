@@ -7,14 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
 import com.hirepp.utils.BaseUtils;
 
+import java.time.Duration;
+
 public class FirstPagePO{
 	
 	public WebDriver driver;
-	BaseUtils cm = new BaseUtils(driver);
+	BaseUtils baseUtils = new BaseUtils(driver);
 
 	@FindBy(how = How.XPATH, using = "//a[@href='/login']")
 	public WebElement login_bt;
@@ -30,7 +34,8 @@ public class FirstPagePO{
 	
 	public LoginPagePO goTOLoginPage() throws InterruptedException {
 		Reporter.log("inside the goTOLogin method",true);
-		Thread.sleep(3000);
+		baseUtils.elementVisibleWait(driver,login_bt);
+//		Thread.sleep(3000);
 //		Point loginpoint = login_bt.getLocation();
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("window.scrollBy("+loginpoint+")");

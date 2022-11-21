@@ -35,7 +35,7 @@ public class JobsPO {
 
     public BasicClientInformationPO goTOAddJDPage() throws InterruptedException {
         Reporter.log("inside the goTOJobs method",true);
-        Thread.sleep(3000);
+        cm.elementVisibleWait(driver,AddJD);
         AddJD.click();
         Reporter.log("Clicked on AddJD",true);
         return new BasicClientInformationPO(this.driver);
@@ -43,6 +43,7 @@ public class JobsPO {
     }
 
     public ViewJdPO goToViewJdPage() throws IOException {
+        cm.elementVisibleWait(driver,AddJD);
         excelOperations.JdIdStoring("./ScriptsDocs/JDdata.xlsx", "ids", this.jobid);
         driver.findElement(By.xpath("//p[.='"+this.jobid+"']")).click();
 //        job.click();
@@ -50,6 +51,7 @@ public class JobsPO {
     }
 
     public ViewJdPO goToViewJdPage(String JobId) throws Exception {
+        cm.elementVisibleWait(driver,AddJD);
         int i,page=1,last_page;
 
         last_page= Integer.parseInt(pages.get(pages.size()-1).getText());
@@ -78,6 +80,7 @@ public class JobsPO {
     }
 
     public List<String> getJobIds() throws Exception {
+        cm.elementVisibleWait(driver,AddJD);
         List<String> jobIds=new ArrayList<>();
         int i,page=1,last_page,j=0;
         last_page= Integer.parseInt(pages.get(pages.size()-1).getText());

@@ -40,7 +40,7 @@ public class AddCandidatePO {
 	    
 	    
 	    public String addCandidate(AddCandidate data) throws InterruptedException, IOException {
-
+			baseUtils.elementVisibleWait(driver,first_Name);
 	        Reporter.log("Inside the addCandidate()",true);
 	        Thread.sleep(3000);
 	        baseUtils.enterData(first_Name,data.first_Name);

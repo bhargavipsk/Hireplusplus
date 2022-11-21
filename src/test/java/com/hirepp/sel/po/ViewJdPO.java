@@ -36,11 +36,13 @@ public class ViewJdPO {
     @FindBy(xpath = "//button[.='Next']") public WebElement bulkNext;
     @FindBy(xpath = "//button[.='Done']") public WebElement bulkDone;
     @FindBy(xpath = "//a/p") public WebElement RecruiterInterviewLink;
+    @FindBy(xpath = "//span[.='Candidates']") public WebElement CandidateVerify;
 
 
 
 
     public AddCandidatePO goToAddCandidatePO(){
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
         if(allCand.size()>0){
             addCandidate.get(0).click();
             addCandidate.get(1).click();
@@ -51,7 +53,8 @@ public class ViewJdPO {
         return new AddCandidatePO(driver);
     }
 
-       public ViewJdPO addBulkCandidate() throws Exception{
+       public ViewJdPO addBulkCandidate(String exePath) throws Exception{
+           baseUtils.elementVisibleWait(driver,CandidateVerify);
         if(allCand.size()>0){
             addCandidate.get(0).click();
             addCandidate.get(2).click();
@@ -60,7 +63,7 @@ public class ViewJdPO {
             addCandidate.get(1).click();
         }
         uploadZip.click();
-        baseUtils.uploadDoc("path");
+        baseUtils.uploadDoc(exePath);
         Thread.sleep(10000);
         bulkNext.click();
         bulkDone.click();
@@ -70,7 +73,7 @@ public class ViewJdPO {
 
 
     public ViewJdPO addSkills(AddJD data) throws InterruptedException {
-        Thread.sleep(5000);
+        baseUtils.elementVisibleWait(driver,addSkills);
         addSkills.click();
         Thread.sleep(2000);
         for(int i=0;i<data.skills.size();i++){
@@ -82,10 +85,12 @@ public class ViewJdPO {
 
         }
         popupSave.click();
+        driver.navigate().refresh();
         return new ViewJdPO(this.driver);
     }
 
     public ReviewCandidatePO goToReviewCandidate(String candId) throws Exception{
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
         int i,page=1,last_page ,j = 1;
@@ -101,7 +106,6 @@ public class ViewJdPO {
             for (i = 0; i < candids.size(); i++) {
                 if (candids.get(i).getText().equals(candId)) {
                     flag=true;
-                    System.out.println(i);
                     break;
                 }
             }
@@ -125,6 +129,7 @@ public class ViewJdPO {
     }
 
     public List<String> getCandId() throws Exception{
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
         int i,page=1,last_page,j = 1;
         if(allCand.size()>0) {
             if(pages.size()>0) {
@@ -133,7 +138,6 @@ public class ViewJdPO {
             else{
                 last_page=1;
             }
-            System.out.println(last_page);
             while (page <=last_page) {
                 List<WebElement> cadids = driver.findElements(By.xpath("//span[@style='font-size: 11px;']"));
                 for (i = 0; i < cadids.size(); i++) {
@@ -153,6 +157,7 @@ public class ViewJdPO {
     }
 
     public SchedulePO goToBookSlot(String candId) throws Exception{
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
         int i,page=1,last_page ,j = 1;
         if(allCand.size()>0) {
             if(pages.size()>0) {
@@ -166,7 +171,6 @@ public class ViewJdPO {
                 for (i = 0; i < candids.size(); i++) {
                     if (candids.get(i).getText().equals(candId)) {
                         flag=true;
-                        System.out.println(i);
                         break;
                     }
                 }
@@ -191,8 +195,9 @@ public class ViewJdPO {
         return new SchedulePO(this.driver);
     }
 
-    public List<Object> InterviewLinks(String candId) throws Exception{
-        List<Object> link=new ArrayList<>();
+    public List<String> InterviewLinks(String candId) throws Exception{
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
+        List<String> link=new ArrayList<>();
         int i,page=1,last_page ,j = 1;
         if(allCand.size()>0) {
             if(pages.size()>0) {
@@ -206,7 +211,6 @@ public class ViewJdPO {
                 for (i = 0; i < candids.size(); i++) {
                     if (candids.get(i).getText().equals(candId)) {
                         flag=true;
-                        System.out.println(i);
                         break;
                     }
                 }
@@ -227,12 +231,11 @@ public class ViewJdPO {
                 page++;
             }}
         Thread.sleep(5000);
-        String panelistLink = PanelistInterviewLink.getText();
-        link.add(panelistLink);
-        String candidateLink= CandidateInterviewLink.getText();
-        link.add(candidateLink);
-        String recruiterLink=RecruiterInterviewLink.getText();
-        link.add(recruiterLink);
+        link.add(baseUtils.getAttributeVal(PanelistInterviewLink,"value"));
+        link.add(baseUtils.getAttributeVal(CandidateInterviewLink,"value"));
+//        link.add(PanelistInterviewLink.getText());
+//        link.add(CandidateInterviewLink.getText());
+        link.add(RecruiterInterviewLink.getText());
         return link;
     }
 

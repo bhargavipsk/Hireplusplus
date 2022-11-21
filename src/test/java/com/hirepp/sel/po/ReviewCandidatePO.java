@@ -31,7 +31,7 @@ public class ReviewCandidatePO {
 
 
     public ViewJdPO Shortlist(AddCandidate data){
-
+        baseUtils.elementVisibleWait(driver,city);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)", "");
         baseUtils.enterData(city,data.city);

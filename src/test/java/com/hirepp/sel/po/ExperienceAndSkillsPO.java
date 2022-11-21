@@ -25,6 +25,7 @@ public class ExperienceAndSkillsPO {
 
 
     public AddMoreDetailsPO goToMoreDetails(AddJD data){
+        baseUtils.elementVisibleWait(driver,maximumExperience);
         Reporter.log("inside goToMoreDetails method",true);
         baseUtils.Select_ddElementByIndex(minimumExperience,1);
         baseUtils.Select_ddElementByIndex(maximumExperience,3);

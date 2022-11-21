@@ -20,7 +20,7 @@ public class SideBarPO {
 
     public JobsPO goTOJobsPage() throws InterruptedException {
         Reporter.log("inside the goTOJobs method",true);
-        Thread.sleep(3000);
+        cm.elementVisibleWait(driver,Jobs);
         Jobs.click();
         Reporter.log("Clicked on Jobs",true);
         return new JobsPO(this.driver);

@@ -1,5 +1,6 @@
 package com.hirepp.sel.po;
 
+import com.hirepp.utils.BaseUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,11 +11,13 @@ public class ReviewJdPO {
 
     WebDriver driver;
     String jobId;
+    BaseUtils baseUtils=new BaseUtils(driver);
 
     @FindBy(xpath = "//button[.='Confirm and Save']") public WebElement confirmAndSave;
 
     public JobsPO goToJob(){
         Reporter.log("inside goToJobs",true);
+        baseUtils.elementVisibleWait(driver,confirmAndSave);
         confirmAndSave.click();
         return new JobsPO(this.driver,this.jobId);
     }

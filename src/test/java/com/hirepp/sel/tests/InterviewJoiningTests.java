@@ -47,66 +47,44 @@ public class InterviewJoiningTests extends TestBaseSetup {
         canNo= random.nextInt(19)+1;
         AddJD jdData = excelOperations.jdInputsExcel("./ScriptsDocs/JDdata .xlsx", "JD", jdno);
         AddCandidate candData=excelOperations.candidateExcelRead("./ScriptsDocs/JDdata .xlsx","candidate",canNo);
-//        System.out.println(jdData.exePath);
-        Thread.sleep(10000);
         FirstPagePO firstPagePO = new FirstPagePO(driver);
         login_po = firstPagePO.goTOLoginPage();
-        Thread.sleep(5000);
         login_po.Login_HirePP(email, password);
-        Thread.sleep(5000);
         sideBarPO=new SideBarPO(driver);
-        Thread.sleep(5000);
         jobsPO=sideBarPO.goTOJobsPage();
-        Thread.sleep(5000);
         basicClientInformationPO=jobsPO.goTOAddJDPage();
-        Thread.sleep(5000);
         generalDetailsPO=basicClientInformationPO.goToGeneralDetailsPage(jdData);
-        Thread.sleep(5000);
         chooseAnOptionPO=generalDetailsPO.goToChooseOptionPage(jdData);
-        Thread.sleep(5000);
         jobsPO=chooseAnOptionPO.goToUpload(jdData.exePath);
-        Thread.sleep(10000);
         jdData.jobId= jobsPO.getJobid();
-//        jdData.jobId=excelOperations.getJobId("./ScriptsDocs/JDdata .xlsx", "ids", 1);
         candData.jdid=jdData.jobId;
         jdData.jobId=candData.jdid;
         excelOperations.JdIdStoring("./ScriptsDocs/JDdata .xlsx", "ids",jdData.jobId);
         viewJdPO=jobsPO.goToViewJdPage(candData.jdid);
-        Thread.sleep(5000);
         driver.navigate().refresh();
         viewJdPO.addSkills(jdData);
-        Thread.sleep(5000);
         addCandidatePO=viewJdPO.goToAddCandidatePO();
-        Thread.sleep(5000);
         candData.candid=addCandidatePO.addCandidate(candData);
         excelOperations.canIdStore("./ScriptsDocs/JDdata .xlsx",candData.candid,canNo);
         excelOperations.candIdStoring("./ScriptsDocs/JDdata .xlsx","ids",jdData.jobId,candData.candid);
-        Thread.sleep(10000);
         viewJdPO=addCandidatePO.goToViewjd();
-        Thread.sleep(5000);
         reviewCandidatePO=viewJdPO.goToReviewCandidate(candData.candid);
-        Thread.sleep(5000);
         viewJdPO=reviewCandidatePO.Shortlist(candData);
-        Thread.sleep(5000);
         schedulePO=viewJdPO.goToBookSlot(candData.candid);
-        Thread.sleep(5000);
         viewJdPO=schedulePO.Schedule();
-        Thread.sleep(10000);
-        List<Object> links = viewJdPO.InterviewLinks(candData.candid);
-        Thread.sleep(5000);
+        List<String> links = viewJdPO.InterviewLinks(candData.candid);
+        System.out.println(links.size());
         String Hire = driver.getWindowHandle();
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--use-fake-ui-for-media-stream=1");
         WebDriver driver1=new ChromeDriver(options);
-        driver1.get(links.get(0).toString());
-        Thread.sleep(5000);
+        driver1.manage().window().maximize();
+        driver1.get(links.get(0));
         panelistInterviewPO=new InterviewPO(driver1);
         panelistInterviewPO.PanelistJoining();
-        Thread.sleep(5000);
         String panalistTab = driver1.getWindowHandle();
-
-        baseUtils.OpeningNewTab(driver1,links.get(1).toString());
+        baseUtils.OpeningNewTab(driver1,links.get(1));
         Set<String> handles = driver1.getWindowHandles();
         for(String handle:handles){
             if(!handle.equalsIgnoreCase(panalistTab)){
@@ -119,7 +97,7 @@ public class InterviewJoiningTests extends TestBaseSetup {
         candidateInterviewPO.CandidateJoining();
         Thread.sleep(5000);
         String candidateTab = driver1.getWindowHandle();
-        baseUtils.OpeningNewTab(driver1,links.get(2).toString());
+        baseUtils.OpeningNewTab(driver1,links.get(2));
         handles =  driver1.getWindowHandles();
         for(String handle:handles){
             if(!handle.equalsIgnoreCase(panalistTab)&&!handle.equalsIgnoreCase(candidateTab)){
@@ -142,7 +120,6 @@ public class InterviewJoiningTests extends TestBaseSetup {
         driver1.switchTo().window(panalistTab);
         panelistInterviewPO.PanelistEnd();
         Thread.sleep(5000);
-
         driver.quit();
     }
 }

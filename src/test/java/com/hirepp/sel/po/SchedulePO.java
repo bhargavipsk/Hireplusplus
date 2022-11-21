@@ -1,5 +1,6 @@
 package com.hirepp.sel.po;
 
+import com.hirepp.utils.BaseUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 
 public class SchedulePO {
     WebDriver driver;
+    BaseUtils baseUtils=new BaseUtils(driver);
 
 
     @FindAll(@FindBy(xpath = "//div[@class='panelist']")) public List<WebElement> panelists;
@@ -21,6 +23,7 @@ public class SchedulePO {
 
 
     public ViewJdPO Schedule() throws InterruptedException {
+        baseUtils.elementVisibleWait(driver, panelists.get(0));
         panelists.get(panelists.size()-1).click();
         Thread.sleep(5000);
         slots.get(0).click();

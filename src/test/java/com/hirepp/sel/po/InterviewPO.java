@@ -1,5 +1,6 @@
 package com.hirepp.sel.po;
 
+import com.hirepp.utils.BaseUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,7 @@ import java.util.List;
 
 public class InterviewPO {
     WebDriver driver;
+    BaseUtils baseUtils=new BaseUtils(driver);
 
     @FindBy(xpath = "//button[.=' Join ']") public WebElement Join;
     @FindBy(xpath = "//button[.=' End Interview ']") public WebElement End;
@@ -22,24 +24,29 @@ public class InterviewPO {
 
 
     public void CandidateJoining(){
+        baseUtils.elementVisibleWait(driver,Join);
         Join.click();
     }
 
     public void RecruiterJoining(){
+        baseUtils.elementVisibleWait(driver,Join);
         Join.click();
     }
 
     public void PanelistJoining(){
+        baseUtils.elementVisibleWait(driver,Join);
         Join.click();
     }
 
     public void candidateEnd() throws InterruptedException {
+        baseUtils.elementVisibleWait(driver,End);
         End.click();
         Thread.sleep(5000);
         driver.switchTo().alert().accept();
     }
 
     public void RecruiterEnd() throws InterruptedException {
+        baseUtils.elementVisibleWait(driver,End);
         End.click();
         Thread.sleep(2000);
         submit.click();
@@ -48,6 +55,7 @@ public class InterviewPO {
     }
 
     public void PanelistEnd() throws InterruptedException {
+        baseUtils.elementVisibleWait(driver,End);
         End.click();
         Thread.sleep(2000);
         submit.click();

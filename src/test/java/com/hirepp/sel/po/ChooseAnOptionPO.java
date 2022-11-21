@@ -20,6 +20,7 @@ public class ChooseAnOptionPO {
 
 
     public JobsPO goToUpload(String exePath) throws Exception {
+        baseUtils.elementVisibleWait(driver,UploadDoc);
         String jobId = ChooseOptionTitle.getText();
         String[] id = baseUtils.stringSplitBySpace(jobId);
         jobId=id[id.length-1];

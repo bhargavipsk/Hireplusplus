@@ -26,10 +26,9 @@ public class RequirementsAndPerksPO {
 
     public ExperienceAndSkillsPO goToExperience(AddJD data) throws IOException {
         Reporter.log("inside the goToExperience",true);
-        String description = baseUtils.readPropValues("description");
-        String requirements= baseUtils.readPropValues("requirements");
-        baseUtils.enterData(jobDescription,description);
-        baseUtils.enterData(Requirements,requirements);
+        baseUtils.elementVisibleWait(driver,jobDescription);
+        baseUtils.enterData(jobDescription,data.description);
+        baseUtils.enterData(Requirements,data.requirements);
         requirementsAndPerksNext.click();
         return new ExperienceAndSkillsPO(this.driver,this.jobId);
     }
