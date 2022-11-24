@@ -28,8 +28,8 @@ public class SchedulePO {
         Thread.sleep(5000);
         slots.get(0).click();
         SlotSubmit.click();
-        driver.navigate().back();
-        driver.navigate().refresh();
+//        driver.navigate().back();
+//        driver.navigate().refresh();
         return new ViewJdPO(this.driver);
     }
 
