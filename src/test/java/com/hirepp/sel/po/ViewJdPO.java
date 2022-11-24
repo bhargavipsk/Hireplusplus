@@ -73,7 +73,7 @@ public class ViewJdPO {
 
 
     public ViewJdPO addSkills(AddJD data) throws InterruptedException {
-        baseUtils.elementVisibleWait(driver,addSkills);
+        baseUtils.elementVisibleWait(driver,CandidateVerify);
         addSkills.click();
         Thread.sleep(2000);
         for(int i=0;i<data.skills.size();i++){

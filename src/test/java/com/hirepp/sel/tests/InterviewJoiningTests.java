@@ -3,13 +3,9 @@ package com.hirepp.sel.tests;
 import com.hirepp.sel.po.*;
 import com.hirepp.utils.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -31,6 +27,7 @@ public class InterviewJoiningTests extends TestBaseSetup {
     InterviewPO panelistInterviewPO;
     InterviewPO recruiterInterviewPO;
     InterviewPO candidateInterviewPO;
+    InterviewJoiningPO interviewJoiningPO;
     BasicClientInformationPO basicClientInformationPO;
     GeneralDetailsPO generalDetailsPO;
     ChooseAnOptionPO chooseAnOptionPO;
@@ -81,8 +78,9 @@ public class InterviewJoiningTests extends TestBaseSetup {
         WebDriver driver1=new ChromeDriver(options);
         driver1.manage().window().maximize();
         driver1.get(links.get(0));
-        panelistInterviewPO=new InterviewPO(driver1);
-        panelistInterviewPO.PanelistJoining();
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        panelistInterviewPO=interviewJoiningPO.Joining();
+        panelistInterviewPO.audioVideoOff();
         String panalistTab = driver1.getWindowHandle();
         baseUtils.OpeningNewTab(driver1,links.get(1));
         Set<String> handles = driver1.getWindowHandles();
@@ -93,8 +91,9 @@ public class InterviewJoiningTests extends TestBaseSetup {
             }
         }
         Thread.sleep(5000);
-        candidateInterviewPO= new InterviewPO(driver1);
-        candidateInterviewPO.CandidateJoining();
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        candidateInterviewPO= interviewJoiningPO.Joining();
+        candidateInterviewPO.audioVideoOff();
         Thread.sleep(5000);
         String candidateTab = driver1.getWindowHandle();
         baseUtils.OpeningNewTab(driver1,links.get(2));
@@ -106,11 +105,21 @@ public class InterviewJoiningTests extends TestBaseSetup {
             }
         }
         Thread.sleep(5000);
-        recruiterInterviewPO= new InterviewPO(driver1);
-        recruiterInterviewPO.RecruiterJoining();
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        recruiterInterviewPO= interviewJoiningPO.Joining();
+        recruiterInterviewPO.audioVideoOff();
         Thread.sleep(5000);
         String RecruiterTab = driver1.getWindowHandle();
-        Thread.sleep(70000);
+        recruiterInterviewPO.tabs();
+        recruiterInterviewPO.chatting("Hi");
+        driver1.switchTo().window(candidateTab);
+        candidateInterviewPO.tabs();
+        candidateInterviewPO.chatting("Hi");
+        driver1.switchTo().window(panalistTab);
+        panelistInterviewPO.tabs();
+        panelistInterviewPO.chatting("Hi");
+
+        Thread.sleep(100000);
         driver1.switchTo().window(candidateTab);
         candidateInterviewPO.candidateEnd();
         Thread.sleep(5000);
@@ -122,4 +131,104 @@ public class InterviewJoiningTests extends TestBaseSetup {
         Thread.sleep(5000);
         driver.quit();
     }
+
+
+    @Test
+    public void InterviewJoiningForJd()throws Exception{
+        int jdno,canNo;
+        Random random=new Random();
+        canNo= random.nextInt(19)+1;
+        AddCandidate candData=excelOperations.candidateExcelRead("./ScriptsDocs/JDdata .xlsx","candidate",canNo);
+        FirstPagePO firstPagePO = new FirstPagePO(driver);
+        login_po = firstPagePO.goTOLoginPage();
+        login_po.Login_HirePP(email, password);
+        sideBarPO=new SideBarPO(driver);
+        jobsPO=sideBarPO.goTOJobsPage();
+        candData.jdid=excelOperations.getJobId("./ScriptsDocs/JDdata .xlsx", "ids",8);
+        viewJdPO=jobsPO.goToViewJdPage(candData.jdid);
+        addCandidatePO=viewJdPO.goToAddCandidatePO();
+        candData.candid=addCandidatePO.addCandidate(candData);
+        excelOperations.canIdStore("./ScriptsDocs/JDdata .xlsx",candData.candid,canNo);
+        excelOperations.candIdStoring("./ScriptsDocs/JDdata .xlsx","ids",candData.jdid,candData.candid);
+        viewJdPO=addCandidatePO.goToViewjd();
+        reviewCandidatePO=viewJdPO.goToReviewCandidate(candData.candid);
+        viewJdPO=reviewCandidatePO.Shortlist(candData);
+        schedulePO=viewJdPO.goToBookSlot(candData.candid);
+        viewJdPO=schedulePO.Schedule();
+        List<String> links = viewJdPO.InterviewLinks(candData.candid);
+        System.out.println(links.size());
+        String Hire = driver.getWindowHandle();
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--use-fake-ui-for-media-stream=1");
+        WebDriver driver1=new ChromeDriver(options);
+        driver1.manage().window().maximize();
+        driver1.get(links.get(0));
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        panelistInterviewPO=interviewJoiningPO.Joining();
+        panelistInterviewPO.audioVideoOff();
+        String panalistTab = driver1.getWindowHandle();
+        baseUtils.OpeningNewTab(driver1,links.get(1));
+        Set<String> handles = driver1.getWindowHandles();
+        for(String handle:handles){
+            if(!handle.equalsIgnoreCase(panalistTab)){
+                driver1.switchTo().window(handle);
+                break;
+            }
+        }
+        Thread.sleep(5000);
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        candidateInterviewPO= interviewJoiningPO.Joining();
+        candidateInterviewPO.audioVideoOff();
+        Thread.sleep(5000);
+        String candidateTab = driver1.getWindowHandle();
+        baseUtils.OpeningNewTab(driver1,links.get(2));
+        handles =  driver1.getWindowHandles();
+        for(String handle:handles){
+            if(!handle.equalsIgnoreCase(panalistTab)&&!handle.equalsIgnoreCase(candidateTab)){
+                driver1.switchTo().window(handle);
+                break;
+            }
+        }
+        Thread.sleep(5000);
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        recruiterInterviewPO= interviewJoiningPO.Joining();
+        recruiterInterviewPO.audioVideoOff();
+        Thread.sleep(5000);
+        String RecruiterTab = driver1.getWindowHandle();
+        recruiterInterviewPO.chatting("Hi");
+        driver1.switchTo().window(panalistTab);
+        panelistInterviewPO.chatting("Hi");
+        driver1.switchTo().window(candidateTab);
+        candidateInterviewPO.chatting("Hi");
+        Thread.sleep(100000);
+        driver1.switchTo().window(RecruiterTab);
+        recruiterInterviewPO.RecruiterEnd();
+        Thread.sleep(5000);
+        driver1.switchTo().window(candidateTab);
+        candidateInterviewPO.candidateEnd();
+        Thread.sleep(5000);
+        driver1.switchTo().window(panalistTab);
+        panelistInterviewPO.PanelistEnd();
+        Thread.sleep(5000);
+        driver.quit();
+    }
+
+
+    @Test
+    public void sliders() throws Exception {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--use-fake-ui-for-media-stream=1");
+        WebDriver driver1=new ChromeDriver(options);
+        driver1.manage().window().maximize();
+        driver1.get("https://interview.dev.hireplusplus.com/system-checks?userRole=RECRUITER&interviewId=SLOT_RAKESH_1669030740&userName=Rakesh");
+        interviewJoiningPO=new InterviewJoiningPO(driver1);
+        recruiterInterviewPO= interviewJoiningPO.Joining();
+        recruiterInterviewPO.audioVideoOff();
+        recruiterInterviewPO.tabs();
+        recruiterInterviewPO.InterviewAssessment();
+    }
+
 }
+

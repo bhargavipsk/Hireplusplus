@@ -36,7 +36,7 @@ public class TestBaseSetup {
 	 * 
 	 * 
 	 */
-	@BeforeSuite
+//	@BeforeSuite
 	public void setUp() throws IOException {
 		System.out.println("driver = " + driver);
 		if (driver == null) {

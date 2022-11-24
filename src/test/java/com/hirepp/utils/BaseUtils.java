@@ -2,7 +2,10 @@ package com.hirepp.utils;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -110,9 +113,10 @@ public class BaseUtils extends TestBaseSetup{
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-//	public void elementClickableWait(WebElement element){
-//		wait.until(ExpectedConditions.elementToBeClickable(element));
-//	}
+	public void elementClickableWait(WebDriver driver,WebElement element){
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
 
 //	public void elementSelectableWait(WebElement element){
 //		wait.until(ExpectedConditions.elementToBeSelected(element));
@@ -187,6 +191,26 @@ public class BaseUtils extends TestBaseSetup{
 
 	}
 
+	public Set<Integer> randomThree(int min,int max){
+		Set<Integer> i = new HashSet<>();
+		Random random=new Random();
+		boolean b=true;
+		while (b) {
+			i.add(random.nextInt(max-min));
+			if(i.size()==3){
+				b=false;
+				break;
+			}
+		}
+		return i;
+	}
+
+	public int randomOne(int max,int min){
+		int i;
+		Random random=new Random();
+		i=random.nextInt(max-min)+min;
+		return i;
+	}
 
 
 

@@ -16,7 +16,7 @@ public class SchedulePO {
     BaseUtils baseUtils=new BaseUtils(driver);
 
 
-    @FindAll(@FindBy(xpath = "//div[@class='panelist']")) public List<WebElement> panelists;
+    @FindAll(@FindBy(xpath = "//div[@class='panelist-name']")) public List<WebElement> panelists;
     @FindAll(@FindBy(xpath = "//span[.='b']")) public List<WebElement> slots;
     @FindBy(xpath = "//button[.='Submit']") public WebElement SlotSubmit;
 
